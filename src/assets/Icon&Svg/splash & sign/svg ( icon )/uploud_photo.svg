@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58" height="58" viewBox="0 0 58 58">
+  <defs>
+    <filter id="Path_7055" x="0" y="0" width="58" height="58" filterUnits="userSpaceOnUse">
+      <feOffset dx="-2" dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="uploud_photo" transform="translate(-187 -177)">
+    <g transform="matrix(1, 0, 0, 1, 187, 177)" filter="url(#Path_7055)">
+      <path id="Path_7055-2" data-name="Path 7055" d="M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z" transform="translate(11 5)" fill="#fff"/>
+    </g>
+    <g id="Group_4346" data-name="Group 4346" transform="translate(206 190)">
+      <path id="Path_7053" data-name="Path 7053" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Path_7054" data-name="Path 7054" d="M5,7H6A2,2,0,0,0,8,5,1,1,0,0,1,9,4h6a1,1,0,0,1,1,1,2,2,0,0,0,2,2h1a2,2,0,0,1,2,2v9a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V9A2,2,0,0,1,5,7" fill="none" stroke="#292929" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <circle id="Ellipse_36" data-name="Ellipse 36" cx="3" cy="3" r="3" transform="translate(9 10)" fill="none" stroke="#292929" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

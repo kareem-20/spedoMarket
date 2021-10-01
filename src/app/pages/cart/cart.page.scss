@@ -1,0 +1,162 @@
+ion-header {
+  ion-button {
+    position: absolute;
+    z-index: 100;
+
+    ion-icon {
+      font-size: 20px;
+      color: #292929;
+    }
+  }
+}
+
+ion-content {
+
+  .container {
+    margin-inline: 16px;
+
+    h2 {
+      color: #656565;
+      font-size: 16px;
+      margin: 16px auto 5px;
+      font-weight: 700;
+    }
+
+    .product {
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      padding: 8px;
+      margin-top: 16px;
+
+      .count {
+        margin-top: 16px;
+        background-color: #F3F3F3;
+        border-radius: 6px;
+
+        ion-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          ion-title {
+            text-align: center;
+            color: #292929;
+            line-height: 28px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+
+          ion-button {
+            text-align: center;
+            font-size: 30px;
+            color: #656565;
+            --padding-start: 0;
+            --padding-end: 0;
+
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+
+    .prodHead {
+
+      display: flex;
+
+      .image {
+        border-radius: 8px;
+        display: inline-block;
+        width: fit-content;
+
+        img {
+          object-fit: cover;
+          height: 84px;
+          width: 120px;
+          border-radius: 8px;
+        }
+      }
+
+      .info {
+        display: inline-block;
+        margin-inline-start: 14px;
+
+        p {
+          color: var(--dark-text);
+          margin-bottom: 12px;
+        }
+
+        span {
+          font-weight: bold;
+
+          del {
+            color: #B2B2B2;
+          }
+        }
+
+      }
+
+      ion-button {
+        // --background: rgba(179, 25, 25, 0.2);
+        border-radius: 8px;
+        --border-radius: 8px;
+        --box-shadow: none;
+        border: none;
+
+      }
+
+    }
+
+
+
+  }
+
+}
+
+
+
+ion-footer {
+  // height: 110%;
+  padding-bottom: 30px;
+
+  p {
+    line-height: 22px;
+    margin-bottom: 0;
+    color: #656565;
+    display: flex;
+    margin-inline: 17px;
+
+    span.end {
+      margin-inline-start: auto;
+      display: flex;
+    }
+  }
+
+  p:last-of-type {
+    color: #292929;
+    font-weight: 700;
+  }
+
+
+  ion-button {
+    height: 50px;
+    margin: 16px;
+    --border-radius: 8px;
+  }
+}
+
+ion-footer::after {
+  bottom: 9px;
+  content: "";
+  height: 4px;
+  color: #000;
+  background-color: #292929;
+  width: 49%;
+  position: absolute;
+
+  left: 25%;
+  right: 25%;
+  border-radius: 100px;
+}

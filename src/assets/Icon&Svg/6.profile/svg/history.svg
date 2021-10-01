@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="history" transform="translate(-316 -416)">
+    <rect id="Rectangle_4324" data-name="Rectangle 4324" width="24" height="24" transform="translate(316 416)" fill="#fff" opacity="0"/>
+    <g id="clock_4_" data-name="clock (4)" transform="translate(296.224 412)">
+      <path id="Path_7010" data-name="Path 7010" d="M99.745,127.632a10,10,0,1,0-10-10A10.011,10.011,0,0,0,99.745,127.632Zm0-19.088a9.088,9.088,0,1,1-9.088,9.088A9.1,9.1,0,0,1,99.745,108.544Z" transform="translate(-66.969 -102.587)" fill="#b31919" stroke="#b31919" stroke-width="0.5"/>
+      <path id="Path_7011" data-name="Path 7011" d="M251.855,192.048l-2.572-2.572v-5.04h-.912v5.418l2.839,2.839Z" transform="translate(-216.115 -173.134)" fill="#b31919" stroke="#b31919" stroke-width="0.5"/>
+    </g>
+    <circle id="Ellipse_16" data-name="Ellipse 16" cx="8" cy="8" r="8" transform="translate(316 424)" fill="#b31919" opacity="0.2"/>
+  </g>
+</svg>

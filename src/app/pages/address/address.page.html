@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" shape="round" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-title>عناوين التوصيل</ion-title>
+    <ion-button slot="end" fill="clear" shape="round">
+      <img src="../../../assets/Icon&Svg/navigation bootom & general icon//Svg/cart.svg" alt="">
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="emptyView" *ngIf="emptyView">
+    <div>
+      <div class="image">
+        <img src="../../../assets/Icon&Svg/8.my location/android/drawable-hdpi/location_empty.png" alt="">
+      </div>
+      <div class="info">
+        <h3>لا يوجد عناوين مضافة</h3>
+        <p>برجاء إضافة عنوان لكي يمكن توصيل طلباتك عليه</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="view">
+
+    <h3 class="title">العنوان الأساسي</h3>
+
+    <ion-radio-group name="auto" value="0">
+      <ion-card>
+        <ion-card-header>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="0"></ion-radio>
+            <ion-label><strong>المنزل </strong> </ion-label>
+            <ion-buttons slot="end">
+              <ion-button fill="clear" class="edit">
+                <img src="../../../assets/Icon&Svg/8.my location/svg/edit.svg" alt="">
+              </ion-button>
+              <ion-button fill="clear" class="delete" (click)="deleteAddress()">
+                <img src="../../../assets/Icon&Svg/8.my location/svg/delet.svg" alt="">
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+          <p>القاهرة_مدينة نصر</p>
+          <p>شارع التحرير</p>
+        </ion-card-content>
+      </ion-card>
+
+
+      <h3 class="title">العناوين الآخرى</h3>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="1"></ion-radio>
+            <ion-label><strong>المنزل </strong> </ion-label>
+            <ion-buttons slot="end">
+              <ion-button fill="clear" class="edit">
+                <img src="../../../assets/Icon&Svg/8.my location/svg/edit.svg" alt="">
+              </ion-button>
+              <ion-button fill="clear" class="delete">
+                <img src="../../../assets/Icon&Svg/8.my location/svg/delet.svg" alt="">
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+          <p>القاهرة_مدينة نصر</p>
+          <p>شارع التحرير</p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-radio-group>
+
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="addAddress()" expand="block">
+      إضافة عنوان جديد
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

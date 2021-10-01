@@ -1,5 +1,7 @@
 {
   "name": "spedo-market",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

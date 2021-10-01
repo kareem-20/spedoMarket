@@ -1,0 +1,107 @@
+<ion-header>
+
+  <ion-button expand="block" fill="clear" shape="round" (click)="skip()">
+    <ion-img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/back_red.svg"></ion-img>
+    تخطي
+  </ion-button>
+  <div class="info">
+    <img src="../../../assets/logo in app/svg/main logo_sign in.svg" alt="">
+
+    <h2>اهلا بك في <br> تطبيق <span>سبيدوو</span></h2>
+  </div>
+</ion-header>
+
+<ion-content>
+  <hr style="height: 12px; width: 100%; background-color: #F5F5F5;border: none;margin-top: 32px;">
+
+  <ion-segment [(ngModel)]="segmentVal" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="0">
+      <ion-label>تسجيل الدخول</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      <ion-label>حساب جديد</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-slides #mySlider pager="false" [options]="slideOpts" (ionSlideDidChange)="slideChanged($event)">
+
+
+    <ion-slide>
+      <form class="container" [formGroup]="loginForm">
+        <p>رقم الهاتف</p>
+        <ion-item>
+          <ion-input type="tel" placeholder="01XXXXXXXXXX" formControlName="phone"></ion-input>
+          <ion-label class="flag" slot="end">(+20)
+            <img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/num_egpt.svg" alt="">
+          </ion-label>
+        </ion-item>
+        <p>كلمة السر</p>
+        <ion-item>
+          <ion-input [type]="showPass ? 'text' : 'password'" placeholder="ادخل كلمة السر" formControlName="password">
+          </ion-input>
+          <ion-icon (click)="show()" slot="end" [name]="showPass ?'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-item>
+
+        <p class="forget">نسيت كلمة السر ؟</p>
+
+        <ion-button class="submit" (click)="login()" expand="block">
+          التسجيل
+        </ion-button>
+
+        <hr class="login">
+
+        <ion-row>
+          <ion-col size="6">
+            <ion-button (click)="google()" expand="block" fill="clear">
+              <img slot="start" src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/google.svg">
+              <ion-label> جوجل</ion-label>
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button (click)="facebook()" expand="block" fill="clear">
+              <img slot="start" src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/facebook.svg">
+              <ion-label>فيسبوك</ion-label>
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </form>
+    </ion-slide>
+
+
+    <ion-slide>
+      <form class="container" [formGroup]="signForm">
+        <p>رقم الهاتف</p>
+        <ion-item>
+          <ion-input type="tel" placeholder="01XXXXXXXXXX" formControlName="phone"></ion-input>
+          <ion-label class="flag" slot="end">(+20)
+            <img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/num_egpt.svg" alt="">
+          </ion-label>
+        </ion-item>
+        <p>كلمة السر</p>
+        <ion-item>
+          <ion-input [type]="showPass ? 'text' : 'password'" placeholder="ادخل كلمة السر" formControlName="password">
+          </ion-input>
+          <ion-icon (click)="show()" slot="end" [name]="showPass ?'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-item>
+
+        <p>تأكيد كلمة السر</p>
+        <ion-item>
+          <ion-input [type]="showPass ? 'text' : 'password'" placeholder="ادخل كلمة السر" formControlName="rePassword">
+          </ion-input>
+          <ion-icon (click)="show()" slot="end" [name]="showPass ?'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-item>
+
+        <ion-button class="submit " (click)="sign()" expand="block">
+          التسجيل
+        </ion-button>
+
+      </form>
+    </ion-slide>
+
+
+  </ion-slides>
+
+
+
+</ion-content>

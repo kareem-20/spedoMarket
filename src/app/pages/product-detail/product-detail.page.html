@@ -1,0 +1,210 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" shape="round" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-title>تفاصيل المنتج</ion-title>
+    <ion-button slot="end" fill="clear" shape="round" (click)="toCart()">
+      <img src="../../../assets/Icon&Svg/navigation bootom & general icon//Svg/cart.svg" alt="">
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager="ios" [options]="slidesOptions">
+    <ion-slide>
+      <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+    </ion-slide>
+  </ion-slides>
+
+  <div class="title">
+    <div class="start">
+      <p>أجندة بقلم ريشة بخامات ممتازة</p>
+      <h6>120 جنية</h6>
+      <span class="not">غير متوفر</span>
+    </div>
+    <div class="end">
+      <ion-buttons slot="end">
+        <ion-button>
+          <img src="../../../assets/Icon&Svg/2.product details/svg/like.svg" alt="">
+        </ion-button>
+        <ion-button>
+          <img src="../../../assets/Icon&Svg/2.product details/svg/share.svg" alt="">
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+
+  <div class="desc">
+    <ion-item>
+      <ion-label>
+        <p>
+          <img src="../../../assets/Icon&Svg/2.product details/svg/star_product.svg" alt=""> 0.0
+        </p>
+        <h5>(لا يوجد تقييم)</h5>
+      </ion-label>
+      <ion-label slot="end">
+        <ion-button fill="clear">
+          <img slot="start" src="../../../assets/Icon&Svg/2.product details/svg/add_rating.svg" alt="">
+          إضافة تقييم
+        </ion-button>
+      </ion-label>
+    </ion-item>
+    <div class="info">
+      <h4>الوصف</h4>
+      <p>أجندة بقلم ريشة بخامات ممتازة...أجندة بقلم ريشة بخامات ممتازة...أجندة بقلم ريشة بخامات ممتازة..أجندة بقلم ريشة
+        بخامات ممتازة..</p>
+    </div>
+  </div>
+
+  <div class="cart">
+    <div class="qount">
+      <ion-buttons>
+        <ion-button>
+          <img src="../../../assets/Icon&Svg/2.product details/svg/add.svg" alt="">
+        </ion-button>
+        <ion-label>12</ion-label>
+        <ion-button>
+          <img src="../../../assets/Icon&Svg/2.product details/svg/low.svg" alt="">
+        </ion-button>
+      </ion-buttons>
+    </div>
+    <div class="adding">
+      <ion-button expand="block" fill="solid" mode="ios">
+        إضافة لسلة المشتريات
+      </ion-button>
+    </div>
+  </div>
+
+
+  <div class="cards">
+    <ion-item lines="none">
+      <ion-label slot="start">عادة يتم الشراء معه</ion-label>
+      <!-- <ion-label slot="end">
+        المزيد
+      </ion-label> -->
+    </ion-item>
+    <div class="prodCards">
+      <ion-card>
+        <ion-card-header>
+          <span class="discount">15%-</span>
+          <!-- <span class="fav">
+            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
+          </span> -->
+          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>أجندة بقلم ريشة بخامات ممتازة</ion-card-title>
+          <p>150 ج <span>170 ج</span></p>
+          <ion-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <span class="discount">15%-</span>
+          <!-- <span class="fav">
+            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
+          </span> -->
+          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product-1.png" alt="">
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>نوت بوك خشب مطبوع مقاس A5</ion-card-title>
+          <p>150 ج <span>170 ج</span></p>
+          <ion-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <span class="discount">15%-</span>
+          <!-- <span class="fav">
+            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
+          </span> -->
+          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product 3.png" alt="">
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>نوت بوك خشب مطبوع مقاس A5</ion-card-title>
+          <p>150 ج <span>170 ج</span></p>
+          <ion-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="cards">
+    <ion-item lines="none">
+      <ion-label slot="start">منتجات مشابهة</ion-label>
+      <!-- <ion-label slot="end">
+        المزيد
+      </ion-label> -->
+    </ion-item>
+    <div class="prodCards">
+      <ion-card>
+        <ion-card-header>
+          <span class="discount">15%-</span>
+          <!-- <span class="fav">
+            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
+          </span> -->
+          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>أجندة بقلم ريشة بخامات ممتازة</ion-card-title>
+          <p>150 ج <span>170 ج</span></p>
+          <ion-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <span class="discount">15%-</span>
+          <!-- <span class="fav">
+            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
+          </span> -->
+          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product-1.png" alt="">
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>نوت بوك خشب مطبوع مقاس A5</ion-card-title>
+          <p>150 ج <span>170 ج</span></p>
+          <ion-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <span class="discount">15%-</span>
+          <!-- <span class="fav">
+            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
+          </span> -->
+          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product 3.png" alt="">
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>نوت بوك خشب مطبوع مقاس A5</ion-card-title>
+          <p>150 ج <span>170 ج</span></p>
+          <ion-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+
+
+</ion-content>

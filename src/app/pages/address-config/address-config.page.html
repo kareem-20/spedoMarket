@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" shape="round" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="ion-text-center">إضافة عنوان جديد</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="container">
+
+    <div class="map" (click)="toMap()">
+      <div class="mark">
+        <img src="../../../assets/Icon&Svg/8.my location/svg/pin_unactice.svg" alt="">
+        <p>تحديد الموقع</p>
+      </div>
+    </div>
+
+    <ion-list lines="none">
+      <p>اسم مميز للعنوان</p>
+      <ion-item>
+        <ion-input type="text" value="بيت العائلة"></ion-input>
+      </ion-item>
+
+      <p>المدينة</p>
+      <ion-item>
+        <ion-select value="0" mode="ios" interface="action-sheet">
+          <ion-select-option value="0">القاهرة</ion-select-option>
+          <ion-select-option value="1">الجيزة</ion-select-option>
+          <ion-select-option value="2">الاسكندرية</ion-select-option>
+          <ion-select-option value="3">البحيرة</ion-select-option>
+          <ion-select-option value="4">الزقازيق</ion-select-option>
+          <ion-select-option value="5">المحلة</ion-select-option>
+        </ion-select>
+        <ion-label slot="end">
+          <img src="../../../assets/Icon&Svg/7.profile information/svg/more.svg">
+        </ion-label>
+      </ion-item>
+
+
+      <p>المنطقة</p>
+      <ion-item>
+        <ion-select value="0" mode="ios" interface="action-sheet">
+          <ion-select-option value="0">القاهرة</ion-select-option>
+          <ion-select-option value="1">الجيزة</ion-select-option>
+          <ion-select-option value="2">الاسكندرية</ion-select-option>
+          <ion-select-option value="3">البحيرة</ion-select-option>
+          <ion-select-option value="4">الزقازيق</ion-select-option>
+          <ion-select-option value="5">المحلة</ion-select-option>
+        </ion-select>
+        <ion-label slot="end">
+          <img src="../../../assets/Icon&Svg/7.profile information/svg/more.svg">
+        </ion-label>
+      </ion-item>
+
+      <p>اسم الشارع</p>
+      <ion-item>
+        <ion-input type="text" value=" شارع التحرير"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col size="4">
+          <p>رقم العمارة</p>
+          <ion-item>
+            <ion-input type="number" placeholder="مثال :20"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <p>رقم الدور</p>
+          <ion-item>
+            <ion-input type="number" placeholder="مثال :4"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <p>رقم الشقة</p>
+          <ion-item>
+            <ion-input type="number" placeholder="مثال :2"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <p>علامة مميزة</p>
+      <ion-item>
+        <ion-input type="text" placeholder="مثال: أمام سوبر ماكت البركة"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block">
+      حفظ المعلومات
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">
+      <div>
+        <ion-text>الأقسام</ion-text>
+      </div>
+    </ion-title>
+    <ion-button (click)="toCart()" slot="end" fill="clear" shape="round">
+      <img src="../../../assets/Icon&Svg/1.home/svg/cart.svg" alt="">
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <div class="container">
+      <ion-row>
+        <ion-col size="6">
+          <h2>(3) اقسام</h2>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button fill="clear" (click)="changeView()">
+            <img
+              [src]=" numView ==0 ?'../../../assets/Icon&Svg/4.categorie/svg/shape_option2.svg' : '../../../assets/Icon&Svg/4.categorie/svg/shape_option1.svg'"
+              alt="" srcset="">
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+  <div class="firstView" *ngIf="numView ==0">
+    <div class="container">
+      <div class="item">
+        <ion-row>
+          <ion-col size="4">
+            <div class="image">
+              <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/notebook.png">
+            </div>
+          </ion-col>
+          <ion-col size="8">
+            <h3>نوت بوك</h3>
+            <p>اكثر من 150 نوت بوك</p>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="item">
+        <ion-row>
+          <ion-col size="4">
+            <div class="image">
+              <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/kids.png">
+            </div>
+          </ion-col>
+          <ion-col size="8">
+            <h3>الأطفال</h3>
+            <p>اكثر من 350 منتج خاص بالأطفال</p>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="item">
+        <ion-row>
+          <ion-col size="4">
+            <div class="image">
+              <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/book.png">
+            </div>
+          </ion-col>
+          <ion-col size="8">
+            <h3>عالم القراءة</h3>
+            <p>أكثر من 350 كتاب</p>
+          </ion-col>
+        </ion-row>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="secondView" *ngIf="numView ==1">
+    <div class="container">
+
+      <ion-card>
+        <ion-card-header>
+          <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/notebook.png" alt="">
+        </ion-card-header>
+        <ion-card-content>
+          <h3>نوت بوك</h3>
+          <p>اكثر من 150 نوت بوك</p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/kids.png">
+        </ion-card-header>
+        <ion-card-content>
+          <h3>الأطفال</h3>
+          <p>اكثر من 350 منتج خاص بالأطفال</p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/book.png">
+        </ion-card-header>
+        <ion-card-content>
+          <h3>عالم القراءة</h3>
+          <p>أكثر من 350 كتاب</p>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+  </div>
+
+</ion-content>

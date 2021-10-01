@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title slot="start">
+        <div>
+          <ion-text>الطلبات</ion-text>
+        </div>
+      </ion-title>
+      <ion-button (click)="toCart()" slot="end" fill="clear" shape="round">
+        <img src="../../../assets/Icon&Svg/1.home/svg/cart.svg" alt="">
+      </ion-button>
+    </ion-toolbar>
+
+
+
+  </ion-header>
+
+
+
+  <ion-content [fullscreen]="true">
+    <ion-segment [(ngModel)]="segmentVal" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="0">
+        <ion-label>الحالية</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-label>السابقة</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-slides #slid pager="false" (ionSlideDidChange)="slideChanged($event)" [options]="slideOpts">
+      <ion-slide>
+        <div class="emptyView">
+          <div>
+            <div class="image">
+              <img src="../../../assets/Icon&Svg/5.order/android/drawable-hdpi/order_empty.png" alt="">
+            </div>
+            <div class="info">
+              <h3>لا يوجد طلبات مرسلة</h3>
+              <p>يمكنك تصفح المزيد من المنتجات واتمام طلب جديد</p>
+              <ion-button shape="round">
+                تصفح العروض
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="view">
+          <div class="container">
+            <h2>(2)طلب</h2>
+
+            <div class="card">
+              <div class="head">
+                <div class="start">
+                  <p>رقم الطلب</p>
+                  <h3>#342534</h3>
+                </div>
+                <div class="end">
+                  <button>
+                    الحالة
+                  </button>
+                </div>
+              </div>
+              <div class="body">
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-item lines="none">
+                      <div class="image">
+                        <img src="../../../assets/Icon&Svg/5.order/svg/cart_red.svg" alt="" />
+                      </div>
+                      <ion-label>
+                        <p>عدد المنتجات</p>
+                        <h4>4 منتج</h4>
+                      </ion-label>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-item lines="none">
+                      <div class="image">
+                        <img src="../../../assets/Icon&Svg/5.order/svg/price.svg" alt="" />
+                      </div>
+                      <ion-label>
+                        <p>السعر الكلي</p>
+                        <h4>230 جنية</h4>
+                      </ion-label>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-button expand="block" fill="clear">
+                      المزيد من التفاصيل
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+  </ion-content>

@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" shape="round" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-title>تواصل معنا</ion-title>
+    <ion-button slot="end" fill="clear" shape="round" (click)="toCart()">
+      <img src="../../../assets/Icon&Svg/navigation bootom & general icon//Svg/cart.svg" alt="">
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <h3 class="title">مواقع التواصل</h3>
+
+    <div class="sochial">
+      <div class="box">
+        <img src="../../../assets/Icon&Svg/6.profile/android/drawable-hdpi/facebook.png" alt="">
+        <p> فيس بوك </p>
+
+      </div>
+      <div class="box">
+        <img src="../../../assets/Icon&Svg/6.profile/android/drawable-hdpi/insta.png" alt="">
+        <p> إنسجرام </p>
+      </div>
+      <div class="box">
+        <img src="../../../assets/Icon&Svg/6.profile/android/drawable-hdpi/whatsapp.png" alt="">
+        <p>واتساب</p>
+      </div>
+    </div>
+
+    <h3 class="title">العنوان</h3>
+
+    <div class="address">
+      <div class="addressImg">
+        <!-- <img src="../../../assets/" alt=""> -->
+      </div>
+      <div class="info">
+        <p>
+          شارع فؤاد علي كبري الكوثر_المنصرة
+        </p>
+      </div>
+      <ion-label slot="end">
+        <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
+      </ion-label>
+    </div>
+
+
+    <h3 class="title">ارسال رسالة أو إقتراح</h3>
+
+    <div class="message">
+
+      <ion-item lines="none">
+        <ion-input type="text" placeholder="كتابة عنوان الرسالة"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-textarea rows="8" placeholder="محتوى الرسالة"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" fill="solid" mode="ios">
+        إرسال </ion-button>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+</ion-content>

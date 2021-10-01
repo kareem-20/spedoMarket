@@ -1,0 +1,5 @@
+<svg id="like_act" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path id="Path_15" data-name="Path 15" d="M0,0H24V24H0Z" fill="none"/>
+  <path id="Path_16" data-name="Path 16" d="M12,20,5,13a4.423,4.423,0,1,1,6.5-6,.9.9,0,0,0,1,0A4.423,4.423,0,1,1,19,13l-7,7" fill="none" stroke="#b31919" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <path id="Path_7021" data-name="Path 7021" d="M12.012,7.185a5.754,5.754,0,0,1,6.069-.755c3.8,2.066,2.109,6.2-1.043,8.739a45.008,45.008,0,0,1-5.162,4.751s-2.3-2.226-4.768-4.751C5.673,13.7,3.865,12.078,3.933,10.739,4.425,1.928,12.012,7.185,12.012,7.185Z" fill="#b31919"/>
+</svg>

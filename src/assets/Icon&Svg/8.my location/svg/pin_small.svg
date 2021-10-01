@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="38" viewBox="0 0 32 38">
+  <g id="pin_small" transform="translate(-171 -136)">
+    <ellipse id="Ellipse_29" data-name="Ellipse 29" cx="6" cy="1.5" rx="6" ry="1.5" transform="translate(181 165)" fill="#b31919"/>
+    <g id="Group_4278" data-name="Group 4278" transform="translate(-5 -13)">
+      <path id="Path_7031" data-name="Path 7031" d="M15.113,3.052A11.182,11.182,0,0,1,25.16,12.773c.393,3.352-2.594,7.142-5.535,10.744-1.806,2.222-3.443,4.819-4.744,4.372C11.9,26.866,3.3,17.889,4.09,13.238A13.007,13.007,0,0,1,6.509,7.145C8.283,4.783,12.475,2.767,15.113,3.052Z" transform="translate(177.346 150.008)" fill="#b31919"/>
+      <g id="Group_4277" data-name="Group 4277" transform="translate(176 149)">
+        <path id="Path_7029" data-name="Path 7029" d="M0,0H32V32H0Z" fill="none"/>
+        <circle id="Ellipse_26" data-name="Ellipse 26" cx="4" cy="4" r="4" transform="translate(12 10.667)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="Path_7030" data-name="Path 7030" d="M22.209,21.209l-5.657,5.657a2.664,2.664,0,0,1-3.769,0L7.124,21.209a10.667,10.667,0,1,1,15.085,0Z" transform="translate(1.333 1)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

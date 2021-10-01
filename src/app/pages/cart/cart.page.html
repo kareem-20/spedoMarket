@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" shape="round" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="ion-text-center">سلة المشتريات</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="container">
+    <h2>(2)منتج</h2>
+
+    <div class="product">
+
+      <div class="prodHead">
+
+        <div class="image">
+          <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/product.png" alt="">
+        </div>
+
+        <div class="info">
+          <p>أجندة بقلم ريشة بخامات ممتازة</p>
+          <span>120 ج <del>150 ج</del></span>
+        </div>
+
+        <div>
+          <ion-button mode="ios" fill="clear">
+            <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/delet.png" alt="">
+          </ion-button>
+        </div>
+
+      </div>
+
+      <div class="count">
+        <ion-row>
+          <ion-col size="2">
+            <ion-button fill="clear">
+              <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/low.png" alt="">
+            </ion-button>
+          </ion-col>
+          <ion-col size="8">
+            <ion-title>13</ion-title>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button fill="clear">
+              <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/add.png" alt="">
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <div class="product">
+
+      <div class="prodHead">
+
+        <div class="image">
+          <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/product.png" alt="">
+        </div>
+
+        <div class="info">
+          <p>أجندة بقلم ريشة بخامات ممتازة</p>
+          <span>120 ج <del>150 ج</del></span>
+        </div>
+
+        <div>
+          <ion-button mode="ios" fill="clear">
+            <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/delet.png" alt="">
+          </ion-button>
+        </div>
+
+      </div>
+
+      <div class="count">
+        <ion-row>
+          <ion-col size="2">
+            <ion-button fill="clear">
+              <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/low.png" alt="">
+            </ion-button>
+          </ion-col>
+          <ion-col size="8">
+            <ion-title>13</ion-title>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button fill="clear">
+              <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/add.png" alt="">
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <p> سعر المنتجات <span class="end">200</span></p>
+    <p> التوصيل <span class="end">30</span></p>
+    <p> السعر الكلي <span class="end">230</span></p>
+    <ion-button expand="block" (click)="confirm()">
+      إكمال الطلب
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

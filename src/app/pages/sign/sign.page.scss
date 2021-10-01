@@ -1,0 +1,127 @@
+ion-header {
+  .info {
+    margin-inline-start: 32px;
+
+    img {
+      display: block;
+      width: 90px;
+      margin: 10px 0;
+    }
+
+    h2 {
+      font-size: 33px;
+      line-height: 47px;
+      // margin-top: 0;
+      margin: 0;
+      font-weight: 700;
+
+      span {
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+
+  ion-button {
+    display: inline-block;
+    text-decoration: underline;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.container {
+  margin-inline-start: 32px;
+  margin-inline-end: 32px;
+}
+
+ion-content {
+
+  --background: #fff !important;
+
+  ion-segment {
+    ion-label {
+      font-weight: 600;
+    }
+
+  }
+
+
+  ion-slides {
+    ion-slide {
+      width: 100%;
+      display: block;
+      // width: auto;
+
+      p {
+        font-size: 16px;
+        color: #656565;
+        line-height: 22px;
+      }
+
+      ion-item {
+        border: 1px solid #B2B2B2;
+        border-radius: 6px;
+
+        // --placeholder-color: #888888;
+        ion-label.flag {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+    }
+  }
+
+  .forget {
+    color: #292929;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  ion-button.submit {
+    --border-radius: 8px;
+    box-shadow: 0px 8px 12px #B3191940;
+    height: 50px;
+    margin-top: 32px;
+  }
+
+  hr.login {
+    border: none;
+    border-top: 2px solid #888888;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+    margin-top: 30px;
+  }
+
+  hr.login:after {
+    background: #fff;
+    content: "أو عن طريق";
+    padding: 0px 12px;
+    position: relative;
+    top: -13px;
+    color: #888888;
+  }
+
+  ion-row {
+    margin-top: 20px;
+
+    ion-button {
+      border-radius: 6px;
+      --background: #F1F1F1;
+      border: 1px solid #B2B2B2;
+      padding-inline-start: 0;
+
+      // img {}
+
+      ion-label {
+        font-weight: 700;
+        color: #292929;
+      }
+    }
+
+  }
+}

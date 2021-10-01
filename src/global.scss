@@ -24,3 +24,152 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+  --font-family: "DIN"
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('./assets/font/DINNextLTArabic-regular.ttf');
+}
+
+* {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-family) !important;
+}
+
+ion-header::after {
+  content: none !important;
+}
+
+ion-footer::before {
+  content: none;
+}
+
+.home div.swiper-pagination {
+  text-align: end;
+  margin-inline-end: 8px;
+
+  span.swiper-pagination-bullet {
+    margin: -3px 4px !important;
+    width: 12px !important;
+    border-radius: 2px !important;
+    height: 4px !important;
+
+    transition: all ease-in-out .3s;
+
+  }
+
+  span.swiper-pagination-bullet-active {
+    background: #FFFFFF;
+    width: 24px !important;
+
+  }
+}
+
+
+// ion-tab-bar {
+//   background-color: rgba(255, 255, 255, .15);
+//   backdrop-filter: blur(5px);
+// }
+
+ion-content {
+  --background: #F5F5F5;
+}
+
+
+.emptyView {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .image {
+    text-align: center;
+
+    img {
+      width: 115px
+    }
+  }
+
+  .info {
+    text-align: center;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+      text-align: center;
+    }
+
+    P {
+      color: #656565;
+      font-size: 16px;
+      line-height: 22px;
+      margin-top: 0;
+      text-align: center;
+    }
+  }
+
+  ion-button {
+    --box-shadow: none;
+    line-height: 22px;
+  }
+
+
+}
+
+
+.default-alert {
+  .image {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(179, 25, 25, .2);
+    width: fit-content;
+    margin: auto;
+    border-radius: 8px;
+    padding: 6px;
+  }
+
+  h2 {
+    font-size: 16px;
+    width: 70%;
+    text-align: center;
+    margin-inline: auto;
+    color: #292929;
+    font-weight: 600;
+  }
+
+  .alert-button-group {
+    padding-inline: 20px;
+  }
+
+  .alert-button {
+    border: none !important;
+    border-radius: 22px;
+    margin-bottom: 22px;
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  button.primary {
+    background-color: var(--ion-color-primary);
+    color: #fff;
+  }
+
+  button.alert-button-role-cancel {
+    color: #656565;
+    background-color: #F1F1F1;
+  }
+
+}
+
+
+.mySelect {
+  .select-icon .select-icon-inner {
+    display: none;
+  }
+}

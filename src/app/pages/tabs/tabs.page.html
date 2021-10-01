@@ -1,0 +1,44 @@
+<ion-tabs #tabs (ionTabsDidChange)="change($event)">
+
+  <ion-tab-bar [translucent]="true" slot="bottom">
+
+    <ion-tab-button tab="home">
+      <!-- <ion-icon name="home"></ion-icon> -->
+      <img
+        [src]="selectedTab ==='home' ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/home_ac.svg' : '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/home.svg'"
+        alt="">
+      <ion-label>الرئيسية</ion-label>
+    </ion-tab-button>
+
+
+    <ion-tab-button tab="categories">
+      <img
+        [src]="selectedTab ==='categories' ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/categories_ac.svg' : '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/categories.svg'"
+        alt="">
+      <ion-label>الاقسام</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="orders">
+      <img
+        [src]="selectedTab ==='orders' ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/orders_ac.svg' : '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/orders.svg'"
+        alt="">
+      <ion-label>الطبيات</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="fav">
+      <img
+        [src]="selectedTab ==='fav' ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/fav_ac.svg' : '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/fav.svg'"
+        alt="">
+      <ion-label>المفضلة</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="account">
+      <img
+        [src]="selectedTab ==='account' ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/profile_ac.svg' : '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/profile.svg'"
+        alt="">
+      <ion-label>الحساب</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

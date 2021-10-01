@@ -1,0 +1,8 @@
+<svg id="share" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path id="Path_14" data-name="Path 14" d="M0,0H24V24H0Z" fill="none"/>
+  <circle id="Ellipse_7" data-name="Ellipse 7" cx="3" cy="3" r="3" transform="translate(3 9)" fill="none" stroke="#888" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <circle id="Ellipse_8" data-name="Ellipse 8" cx="3" cy="3" r="3" transform="translate(15 3)" fill="none" stroke="#888" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <circle id="Ellipse_9" data-name="Ellipse 9" cx="3" cy="3" r="3" transform="translate(15 15)" fill="none" stroke="#888" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <line id="Line_3" data-name="Line 3" y1="3.4" x2="6.6" transform="translate(8.7 7.3)" fill="none" stroke="#888" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <line id="Line_4" data-name="Line 4" x2="6.6" y2="3.4" transform="translate(8.7 13.3)" fill="none" stroke="#888" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+</svg>

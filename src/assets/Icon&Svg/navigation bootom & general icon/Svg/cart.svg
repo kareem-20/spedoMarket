@@ -1,0 +1,6 @@
+<svg id="cart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path id="Path_4" data-name="Path 4" d="M0,0H24V24H0Z" fill="none"/>
+  <circle id="Ellipse_5" data-name="Ellipse 5" cx="2" cy="2" r="2" transform="translate(7 17)" fill="none" stroke="#292929" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <circle id="Ellipse_6" data-name="Ellipse 6" cx="2" cy="2" r="2" transform="translate(15 17)" fill="none" stroke="#292929" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <path id="Path_5" data-name="Path 5" d="M3,3H5L7,15a3,3,0,0,0,3,2h7a3,3,0,0,0,3-2l1-7H5.8" fill="none" stroke="#292929" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+</svg>

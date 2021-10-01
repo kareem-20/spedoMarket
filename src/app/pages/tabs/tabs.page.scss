@@ -1,0 +1,16 @@
+ion-tab-bar {
+  height: 84px;
+  --background: rgba($color: #fff, $alpha: .30);
+  // filter: blur(8px);
+  // -webkit-filter: blur(8px);
+
+}
+
+ion-tab-button {
+
+
+  ion-label {
+    margin-top: 7px;
+    margin-bottom: 12px;
+  }
+}

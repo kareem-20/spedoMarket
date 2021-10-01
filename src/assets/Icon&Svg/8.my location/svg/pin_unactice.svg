@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="pin_unactice" transform="translate(-172 -145)">
+    <circle id="Ellipse_27" data-name="Ellipse 27" cx="16" cy="16" r="16" transform="translate(172 145)" fill="#fff"/>
+    <g id="Group_4277" data-name="Group 4277" transform="translate(176 149)">
+      <path id="Path_7029" data-name="Path 7029" d="M0,0H24V24H0Z" fill="none"/>
+      <circle id="Ellipse_26" data-name="Ellipse 26" cx="3" cy="3" r="3" transform="translate(9 8)" fill="none" stroke="#292929" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_7030" data-name="Path 7030" d="M17.657,16.657,13.414,20.9a2,2,0,0,1-2.827,0L6.343,16.657a8,8,0,1,1,11.314,0Z" fill="none" stroke="#292929" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

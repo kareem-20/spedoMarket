@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="fav" transform="translate(-311 -370)">
+    <rect id="Rectangle_4323" data-name="Rectangle 4323" width="24" height="24" transform="translate(311 370)" fill="#fff" opacity="0"/>
+    <g id="heart_2_" data-name="heart (2)" transform="translate(308.599 364.296)">
+      <g id="Group_4210" data-name="Group 4210" transform="translate(5.401 6.704)">
+        <g id="Group_4209" data-name="Group 4209">
+          <path id="Path_6997" data-name="Path 6997" d="M105.4,121a5.215,5.215,0,0,0-4.5,2.763A5.215,5.215,0,0,0,96.4,121a5.11,5.11,0,0,0-3.932,1.819A6.362,6.362,0,0,0,91,126.973a7.688,7.688,0,0,0,2.02,4.979,44.563,44.563,0,0,0,4.951,4.759c.743.651,1.51,1.324,2.326,2.058a.9.9,0,0,0,1.2,0c.816-.734,1.584-1.407,2.327-2.058a44.557,44.557,0,0,0,4.951-4.759,7.687,7.687,0,0,0,2.02-4.979C110.8,123.754,108.6,121,105.4,121Z" transform="translate(-91 -121)" fill="#fff" stroke="#b31919" stroke-width="1.5"/>
+        </g>
+      </g>
+    </g>
+    <circle id="Ellipse_17" data-name="Ellipse 17" cx="8" cy="8" r="8" transform="translate(311 378)" fill="#b31919" opacity="0.2"/>
+  </g>
+</svg>

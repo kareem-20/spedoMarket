@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="more" transform="translate(-44 -293)">
+    <rect id="Rectangle_4412" data-name="Rectangle 4412" width="20" height="20" transform="translate(44 293)" fill="#fff" opacity="0"/>
+    <g id="more-2" data-name="more" transform="translate(42 291)">
+      <circle id="Ellipse_61" data-name="Ellipse 61" cx="2" cy="2" r="2" transform="translate(10 10)" fill="#656565"/>
+      <circle id="Ellipse_62" data-name="Ellipse 62" cx="2" cy="2" r="2" transform="translate(2 10)" fill="#656565"/>
+      <circle id="Ellipse_63" data-name="Ellipse 63" cx="2" cy="2" r="2" transform="translate(18 10)" fill="#656565"/>
+    </g>
+  </g>
+</svg>

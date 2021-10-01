@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="end" name="close-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <div class="emptyView">
+    <!-- <div> -->
+    <div class="imag">
+      <img src="../../../assets/Icon&Svg/3.cart/android/drawable-hdpi/done.png" alt="">
+    </div>
+    <div class="done">
+
+      <h1>تم إرسال طلبك بنجاح</h1>
+      <p>رقم طلبك هو : 135</p>
+      <ion-button mode="ios" shape="round" fill="solid" expand="block">
+        تفاصيل الطلب
+      </ion-button>
+      <ion-button mode="ios" shape="round" fill="clear" expand="block" (click)="toHome()">
+        الرجوع للرئيسية
+      </ion-button>
+    </div>
+    <!-- </div> -->
+  </div>
+
+</ion-content>

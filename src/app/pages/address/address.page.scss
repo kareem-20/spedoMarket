@@ -1,0 +1,123 @@
+ion-header {
+  ion-button {
+    ion-icon {
+      font-size: 20px;
+      color: #292929;
+    }
+  }
+
+  ion-title {
+    font-size: 20px;
+    color: #584b4b;
+    text-align: center;
+  }
+}
+
+ion-content {
+  .view {
+    margin-inline-start: 16px;
+    margin-inline-end: 16px;
+
+    h3.title {
+      color: #656565;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+      margin-bottom: 16px;
+    }
+
+    h3.title:first-of-type {
+      margin-top: 27px;
+    }
+
+    ion-card {
+      box-shadow: 0 3px 6px #00000029;
+      border-radius: 8px;
+      margin: 0;
+
+      ion-card-header {
+        background-color: rgba($color: #B2B2B2, $alpha: .08);
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+      }
+
+      ion-item {
+        --padding-start: 0;
+        --inner-padding-end: 0;
+
+        --background: transparent;
+      }
+
+      ion-radio {
+        // --padding-end: 0;
+        margin-inline-end: 10px;
+      }
+
+      ion-label {
+        font-weight: bold;
+        font-size: 16px;
+        color: #292929;
+      }
+
+      .edit {
+        background-color: rgba($color: #3B7AD2, $alpha: .2);
+        border-radius: 8px;
+        margin-inline-end: 16px;
+      }
+
+      .delete {
+        background-color: rgba($color: #B31919, $alpha: .2);
+        border-radius: 8px;
+      }
+
+      ion-card-content {
+        p {
+          margin-inline-start: 9%;
+        }
+      }
+    }
+
+  }
+}
+
+
+ion-footer {
+  height: 117px;
+
+  ion-button {
+    height: 50px;
+    margin: 16px;
+    --border-radius: 8px;
+  }
+}
+
+ion-footer::after {
+  bottom: 9px;
+  content: "";
+  height: 4px;
+  color: #000;
+  background-color: #292929;
+  width: 49%;
+  position: absolute;
+
+  left: 25%;
+  right: 25%;
+  border-radius: 100px;
+}
+
+// .myalert {
+
+//   // background-color: rgba($color: #B31919, $alpha: .2);
+//   // display: flex;
+//   // justify-content: center;
+//   // // border-radius:8px
+//   .image {
+//     display: flex;
+//     justify-content: center;
+//     background-color: rgba(179, 25, 25, .2);
+//     width: fit-content;
+//     margin: auto;
+//     border-radius: 8px;
+//   }
+
+// }

@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" shape="round" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="ion-text-center">تعديل المعلومات</ion-title>
+    <ion-button slot="end" fill="clear" shape="round" (click)="toCart()">
+      <img src="../../../assets/Icon&Svg/navigation bootom & general icon//Svg/cart.svg" alt="">
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="profilePic">
+    <img [src]="photo ? photo : '../../../assets/Icon&Svg/6.profile/android/drawable-hdpi/normal_avatar.png' " />
+    <ion-badge mode="ios">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-badge>
+  </div>
+
+
+  <ion-list lines="none">
+    <p>الاسم</p>
+    <ion-item>
+      <ion-input type="text" value="Kareem Adel"></ion-input>
+    </ion-item>
+
+    <p>رقم الهاتف</p>
+    <ion-item>
+      <ion-input type="number" value="01066655063"></ion-input>
+      <ion-label slot="end" class="phone">
+        (+20)
+        <img src="../../../assets/Icon&Svg/7.profile information/svg/1f1ea-1f1ec.svg" alt="">
+      </ion-label>
+    </ion-item>
+
+    <p>تاريخ الميلاد</p>
+    <ion-item>
+      <ion-datetime placeholder="DD/MM/YYYY" display-format="DD/MM/YYYY" mode="ios"></ion-datetime>
+      <ion-label slot="end">
+        <img src="../../../assets/Icon&Svg/7.profile information/svg/date.svg">
+      </ion-label>
+    </ion-item>
+
+    <p>النوع</p>
+    <ion-item>
+
+      <ion-select value="male" mode="ios" class="mySelect">
+        <ion-select-option value="male">ذكر</ion-select-option>
+        <ion-select-option value="femail">انثي</ion-select-option>
+      </ion-select>
+      <ion-label slot="end">
+        <img src="../../../assets/Icon&Svg/7.profile information/svg/more.svg">
+      </ion-label>
+    </ion-item>
+
+    <p>ربط الحساب مع</p>
+    <div class="accounts">
+
+      <ion-item>
+        <img src="../../../assets/Icon&Svg/7.profile information/android/drawable-hdpi/google_s.png" alt="">
+        <p>حساب جوجل</p>
+      </ion-item>
+      <ion-item>
+        <img src="../../../assets/Icon&Svg/7.profile information/android/drawable-hdpi/facebook_s.png" alt="">
+        <p>حساب الفيسبوك</p>
+      </ion-item>
+    </div>
+
+    <p>كلمة المرور</p>
+    <ion-item (click)="changePass()">
+      <ion-input type="password" value="ooooooo"></ion-input>
+      <ion-label slot="end">
+        <ion-button fill="clear">
+          نغيير
+        </ion-button>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block">
+      حفظ المعلومات
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

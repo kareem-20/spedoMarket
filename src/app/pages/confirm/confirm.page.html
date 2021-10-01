@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" shape="round" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="ion-text-center">اكمال الطلب</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="container ion-margin-horizontal">
+    <h2>نظرة عامة</h2>
+
+    <div class="itemTop">
+      <div class="part">
+        <div class="image">
+          <img src="../../../assets/Icon&Svg/3.cart/svg/cart_red.svg" alt="">
+        </div>
+        <div class="info">
+          <h5>عدد المنتجات</h5>
+          <p>2 منتج</p>
+        </div>
+      </div>
+      <div class="part">
+        <div class="image">
+          <img src="../../../assets/Icon&Svg/3.cart/svg/price.svg" alt="">
+        </div>
+        <div class="info">
+          <h5>السعر الكلي</h5>
+          <p>230 جنية</p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <h2>عنوان التوصيل</h2>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item lines="none">
+          <ion-label><strong>المنزل </strong> </ion-label>
+          <ion-buttons slot="end">
+
+            <ion-button fill="clear" class="change">
+              تغيير
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+        <p>القاهرة_مدينة نصر</p>
+        <p>شارع التحرير</p>
+      </ion-card-content>
+    </ion-card>
+
+    <h2 style="margin-bottom: 0;">طريقة الدفع</h2>
+    <div class="payment">
+      <p>حدد الطريقة المناسبة لك للدفع</p>
+
+      <ion-radio-group>
+        <ion-list lines="none">
+          <ion-row>
+            <ion-col size="6">
+              <ion-item class="radio" lines="none">
+                <img src="../../../assets/Icon&Svg/3.cart//android/drawable-hdpi/NoPath.png" alt="">
+                <ion-label>عن طريق خدمة ( فوري )</ion-label>
+                <ion-radio></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item class="radio" lines="none">
+                <img src="../../../assets/Icon&Svg/3.cart//android/drawable-hdpi/money_cash.png" alt="">
+                <ion-label>الدفع عند الإستلام</ion-label>
+                <ion-radio></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+      </ion-radio-group>
+    </div>
+
+    <h2>إضافة ملاحظة</h2>
+
+    <div class="note">
+      <ion-textarea placeholder="اكتب ملاحظة" rows="3"></ion-textarea>
+    </div>
+
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" mode="ios" (click)="confirm()">
+      تأكيد الطلب
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

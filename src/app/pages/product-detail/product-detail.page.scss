@@ -1,0 +1,257 @@
+ion-header {
+
+  ion-button {
+    ion-icon {
+      font-size: 20px;
+      color: #292929;
+    }
+  }
+
+  ion-title {
+    font-size: 20px;
+    color: #292929;
+    text-align: center;
+  }
+
+}
+
+
+ion-slide {
+  img {
+    width: 100%;
+    height: 204px;
+    object-fit: cover;
+  }
+}
+
+.title {
+  background-color: #fff;
+  display: flex;
+  padding-inline: 16px;
+  padding-bottom: 16px;
+
+  p {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 0;
+  }
+
+  h6 {
+    font-weight: 600;
+    font-size: 20;
+  }
+
+  span.not {
+    color: var(--ion-color-primary);
+  }
+
+  .end {
+    margin-inline-start: auto;
+
+    ion-buttons {
+      margin-top: 13px;
+      flex-direction: column;
+      gap: 10px;
+
+      ion-button {
+        background-color: #F3F3F3;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.desc {
+  margin-top: 8px;
+  background-color: #fff;
+
+  h5 {
+    color: #292929;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  ion-button {
+    color: #888;
+    background-color: #F3F3F3;
+    border-radius: 4px;
+    height: 40px;
+  }
+
+  .info {
+    padding-inline: 16px;
+    padding-bottom: 16px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+}
+
+.cart {
+  margin-top: 8px;
+  background-color: #fff;
+  padding: 16px;
+  display: flex;
+
+  .qount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    background-color: #F3F3F3;
+    border-radius: 6px;
+    margin-inline-end: 13px;
+
+    ion-buttons {
+      height: 50px;
+    }
+
+    ion-label {
+      color: #292929;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 600;
+    }
+  }
+
+  .adding {
+    width: 60%;
+
+    ion-button {
+      height: 50px;
+      line-height: 22px;
+      border-radius: 6px;
+      color: #FFFFFF;
+      width: 100%;
+    }
+  }
+}
+
+///
+.cards {
+  margin-top: 22px;
+
+  ion-item {
+    --background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  ion-label[slot="start"] {
+    color: #292929;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+
+  ion-label[slot="end"] {
+    color: var(--ion-color-primary);
+    font-size: 16px;
+  }
+
+  .prodCards {
+    height: auto;
+    white-space: nowrap;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+
+    ion-card {
+      display: inline-block;
+      width: 150px;
+      padding: 0px;
+      border-radius: 8px;
+      box-shadow: 0 0 0 0;
+      margin-inline-start: 0;
+      margin-inline-end: 14px;
+
+      ion-card-header {
+        padding: 0;
+
+        img {
+          margin: auto;
+          height: 115px;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 7px 7px 0 0;
+        }
+
+      }
+
+      ion-card-content {
+        padding: auto;
+        // padding-inline-start: 8px;
+        padding-inline: 8px;
+
+        ion-card-title {
+          white-space: break-spaces;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 14px;
+          line-height: 21px;
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 600;
+          color: #292929;
+          margin-bottom: 0;
+
+          span {
+            margin-inline-start: 5px;
+            font-weight: 400;
+            color: #B2B2B2;
+            text-decoration: line-through;
+          }
+        }
+
+        ion-button {
+          --border-radius: 0px 8px;
+          --box-shadow: none;
+          position: absolute;
+          bottom: 0;
+          left: 0px;
+          margin: 0;
+          --padding-end: 10px;
+          --padding-start: 10px;
+
+          ion-icon {
+            font-size: 24px;
+          }
+        }
+      }
+
+      span.discount {
+        position: absolute;
+        top: 8px;
+        right: 5px;
+        border-radius: 4px;
+        padding: 5px 4px 2px;
+        background-color: #F6D3D3;
+        color: #B31919;
+        font-weight: 500;
+        z-index: 5;
+        font-size: 12px;
+      }
+
+      // span.fav {
+      //   position: absolute;
+      //   top: 8px;
+      //   left: 5px;
+      //   border-radius: 4px;
+      //   padding: 5px 4px 2px;
+      //   width: 26px;
+      //   height: 26px;
+      //   background-color: #F3F3F3;
+      //   img {
+      //     width: fit-content;
+      //     object-fit: contain;
+      //     height: fit-content
+      //   }
+      // }
+    }
+  }
+
+  .prodCards::-webkit-scrollbar {
+    display: none;
+  }
+}

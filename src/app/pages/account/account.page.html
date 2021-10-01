@@ -1,0 +1,122 @@
+  <ion-header>
+    <ion-toolbar>
+      <ion-title slot="start">
+        <div>
+          <ion-text>الحساب</ion-text>
+        </div>
+      </ion-title>
+      <ion-button (click)="toCart()" slot="end" fill="clear" shape="round">
+        <img src="../../../assets/Icon&Svg/1.home/svg/cart.svg" alt="">
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="container">
+
+      <ion-item lines="none" class="profile" button="true" (click)="profile()">
+        <div class="image" slot="start">
+          <img src="../../../assets/photo_2021-06-08_13-53-51.jpg" />
+        </div>
+        <ion-label>
+          <p>اهلا بك</p>
+          <h2>Kareem Adel</h2>
+        </ion-label>
+        <ion-label slot="end">
+          <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
+        </ion-label>
+      </ion-item>
+
+      <h3 class="title">أنشطة الحساب</h3>
+
+      <div class="info">
+
+        <ion-item lines="none" button="true" (click)="toAddress()">
+          <div class="image" slot="start">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/map.svg" />
+          </div>
+          <ion-label>عناوين التوصيل</ion-label>
+          <ion-label slot="end">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none" button="true" (click)="toFav()">
+          <div class="image" slot="start">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/fav.svg" />
+          </div>
+          <ion-label>المنتجات المفضلة</ion-label>
+          <ion-label slot="end">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none" button="true">
+          <div class="image" slot="start">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/history.svg" />
+          </div>
+          <ion-label>منتجات قد شاهدتها</ion-label>
+          <ion-label slot="end">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
+          </ion-label>
+        </ion-item>
+
+      </div>
+
+
+      <h3 class="title">أخرى</h3>
+
+      <div class="info">
+
+        <ion-item lines="none" button="true" (click)="openSheet()">
+          <div class="image" slot="start">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/Language.svg" />
+          </div>
+          <ion-label>اللغة:العربية</ion-label>
+          <ion-label slot="end">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none" button="true">
+          <div class="image" slot="start">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/rating.svg" />
+          </div>
+          <ion-label>تقييم التطبيق</ion-label>
+          <ion-label slot="end">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none" button="true" (click)="contact()">
+          <div class="image" slot="start">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/connect.svg" />
+          </div>
+          <ion-label>تواصل معنا</ion-label>
+          <ion-label slot="end">
+            <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
+          </ion-label>
+        </ion-item>
+
+      </div>
+
+      <ion-button class="logOut" expand="block" fill="clear">
+        تسجيل الخروج
+      </ion-button>
+    </div>
+
+
+  </ion-content>
+  <!-- <ion-bottom-sheet [(state)]="sheetState" [title]="title" style="z-index: 100;">
+    <ion-item>
+      <ion-badge slot="start">42</ion-badge>
+      <ion-label>Item Avatar</ion-label>
+    </ion-item>
+  </ion-bottom-sheet> -->
+
+  <!--
+  <ion-bottom-drawer [(state)]="drawerState">
+    <div class="drawer-content">
+      Bottom Drawer Content
+    </div>
+  </ion-bottom-drawer> -->

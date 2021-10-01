@@ -1,0 +1,46 @@
+ion-header {
+  ion-icon {
+    margin-inline-end: 16px;
+    font-size: 25px;
+  }
+}
+
+ion-content {
+  --background: #fff;
+}
+
+.emptyView {
+  flex-direction: column;
+}
+
+.done {
+  text-align: center;
+  color: #292929;
+
+  h1 {
+    line-height: 40px;
+    font-size: 28px;
+    word-spacing: 5px;
+    margin-bottom: 0;
+    font-weight: 800;
+  }
+
+  p {
+    font-size: 21px;
+    line-height: 29px;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  ion-button {
+    height: 50px;
+    margin-top: 16px;
+    width: 230px;
+    margin-inline: auto;
+  }
+
+  ion-button[fill="clear"] {
+    border: 1px solid #B31919;
+    border-radius: 25px;
+  }
+}
