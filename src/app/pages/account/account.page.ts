@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DrawerState } from 'ion-bottom-drawer';
 import { SheetState } from 'ion-bottom-sheet';
+import { User } from '../../interfaces/user';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-account',
@@ -13,14 +15,17 @@ export class AccountPage implements OnInit {
   sheetState = SheetState.Bottom;
   title = 'my title';
 
-  drawerState = DrawerState.Bottom;
-  minimumHeight = '200px';
+  user: User;
 
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
+    this.user = this.authService.userData;
+    console.log('this.user', this.user);
+    console.log('auth UserData', this.authService.userData);
   }
 
   toCart() {
@@ -42,8 +47,8 @@ export class AccountPage implements OnInit {
   }
 
   openSheet() {
-    this.sheetState = SheetState.Docked;
-    this.drawerState = DrawerState.Docked
+    this.sheetState = SheetState.Top;
+    // this.drawerState = DrawerState.Docked
   }
 
   contact() {

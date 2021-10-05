@@ -14,31 +14,35 @@
 <ion-content>
 
   <div class="profilePic">
-    <img [src]="photo ? photo : '../../../assets/Icon&Svg/6.profile/android/drawable-hdpi/normal_avatar.png' " />
-    <ion-badge mode="ios">
+    <img [src]="imageURL ? imageURL : '../../../assets/Icon&Svg/6.profile/android/drawable-hdpi/normal_avatar.png' " />
+    <ion-badge mode="ios" (click)="addPhoto()">
       <ion-icon name="camera-outline"></ion-icon>
+
     </ion-badge>
+    <input style="position: absolute; border: 0;width: 0;height: 0;opacity: 0;top: 0;left: 0;"
+      (change)="showImage($event)" type="file" #image />
   </div>
 
 
   <ion-list lines="none">
     <p>الاسم</p>
     <ion-item>
-      <ion-input type="text" value="Kareem Adel"></ion-input>
+      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
     </ion-item>
 
     <p>رقم الهاتف</p>
     <ion-item>
-      <ion-input type="number" value="01066655063"></ion-input>
-      <ion-label slot="end" class="phone">
+      <ion-input disabled type="number" [(ngModel)]="user.phone"></ion-input>
+      <!-- <ion-label slot="end" class="phone">
         (+20)
         <img src="../../../assets/Icon&Svg/7.profile information/svg/1f1ea-1f1ec.svg" alt="">
-      </ion-label>
+      </ion-label> -->
     </ion-item>
 
     <p>تاريخ الميلاد</p>
     <ion-item>
-      <ion-datetime placeholder="DD/MM/YYYY" display-format="DD/MM/YYYY" mode="ios"></ion-datetime>
+      <ion-datetime placeholder="DD/MM/YYYY" [(ngModel)]="pornDate" display-format="DD/MM/YYYY" mode="ios">
+      </ion-datetime>
       <ion-label slot="end">
         <img src="../../../assets/Icon&Svg/7.profile information/svg/date.svg">
       </ion-label>
@@ -47,7 +51,7 @@
     <p>النوع</p>
     <ion-item>
 
-      <ion-select value="male" mode="ios" class="mySelect">
+      <ion-select [(ngModel)]="user.gender" mode="ios" class="mySelect">
         <ion-select-option value="male">ذكر</ion-select-option>
         <ion-select-option value="femail">انثي</ion-select-option>
       </ion-select>
@@ -71,7 +75,7 @@
 
     <p>كلمة المرور</p>
     <ion-item (click)="changePass()">
-      <ion-input type="password" value="ooooooo"></ion-input>
+      <ion-label type="password"> ************ </ion-label>
       <ion-label slot="end">
         <ion-button fill="clear">
           نغيير
@@ -85,7 +89,7 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="block">
+    <ion-button expand="block" (click)="saveInfo()">
       حفظ المعلومات
     </ion-button>
   </ion-toolbar>

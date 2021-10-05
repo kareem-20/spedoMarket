@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignPageRoutingModule } from './sign-routing.module';
 
 import { SignPage } from './sign.page';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { SignPage } from './sign.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
+    NgOtpInputModule,
     SignPageRoutingModule
   ],
   declarations: [SignPage]

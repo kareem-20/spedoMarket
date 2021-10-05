@@ -34,16 +34,18 @@ ion-header {
   margin-inline-end: 32px;
 }
 
+ion-segment {
+  ion-label {
+    font-weight: 600;
+  }
+
+}
+
 ion-content {
 
   --background: #fff !important;
 
-  ion-segment {
-    ion-label {
-      font-weight: 600;
-    }
 
-  }
 
 
   ion-slides {
@@ -58,7 +60,8 @@ ion-content {
         line-height: 22px;
       }
 
-      ion-item {
+      ion-item,
+      .myItem {
         border: 1px solid #B2B2B2;
         border-radius: 6px;
 
@@ -115,7 +118,10 @@ ion-content {
       border: 1px solid #B2B2B2;
       padding-inline-start: 0;
 
-      // img {}
+      img {
+        width: 22px;
+        margin-inline-end: 5px;
+      }
 
       ion-label {
         font-weight: 700;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController, ToastController } from '@ionic/angular';
+import { Address } from '../../interfaces/address';
 
 @Component({
   selector: 'app-address',
@@ -8,6 +9,7 @@ import { AlertController, NavController, ToastController } from '@ionic/angular'
 })
 export class AddressPage implements OnInit {
 
+  address: Address[] = []
   emptyView: boolean = false;
   constructor(
     private navCtrl: NavController,

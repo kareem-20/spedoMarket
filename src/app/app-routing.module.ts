@@ -70,6 +70,10 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () => import('./pages/products/products.module').then( m => m.ProductsPageModule)
+  },
+  {
+    path: 'otp',
+    loadChildren: () => import('./pages/otp/otp.module').then( m => m.OtpPageModule)
   }
 
 ];

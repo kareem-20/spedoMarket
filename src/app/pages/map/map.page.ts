@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { HelperService } from '../../services/helper.service';
+import { DataService } from '../../services/data.service';
 
 declare var google: any;
 
@@ -12,16 +15,28 @@ export class MapPage implements OnInit {
 
   @ViewChild('map', { static: true }) mapRef: ElementRef;
 
+  currentLocation: {
+    lng: number,
+    lat: number
+  }
+  mapLocation: {
+    lng: number,
+    lat: number
+  }
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private geolocation: Geolocation,
+    private helper: HelperService,
+    private dataService: DataService,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
     this.initMap();
   }
 
-  back() {
-    this.navCtrl.back();
+  dismiss() {
+    this.modalCtrl.dismiss();
   }
 
   initMap() {
@@ -47,13 +62,36 @@ export class MapPage implements OnInit {
     })
 
     marker.addListener('dragend', () => {
-      let location = {
+      this.mapLocation = {
         lat: marker.getPosition().lat(),
         lng: marker.getPosition().lng(),
       }
 
-      console.log(location)
+      // console.log(location)
     })
+  }
+
+  async getMyLocation() {
+    await this.geolocation.getCurrentPosition(
+      {
+        enableHighAccuracy: true,
+        timeout: 4000
+      }
+    ).then((p) => {
+      let currentLocation = {
+        lng: p.coords.longitude,
+        lat: p.coords.latitude
+      }
+
+      this.dataService.myLocation = this.currentLocation;
+      this.modalCtrl.dismiss(currentLocation)
+    }).catch(err => {
+      this.helper.showToast('فشل تحديد الموقع من فضلك تأكد من ال gps')
+    })
+  }
+
+  confirmLocation() {
+    this.modalCtrl.dismiss(this.mapLocation)
   }
 
 }

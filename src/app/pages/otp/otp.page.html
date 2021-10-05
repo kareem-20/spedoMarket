@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss(false)">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form">
+    <div class="logo">
+      <img src="../../../assets/logo in app/svg/main logo_sign in.svg" alt="" />
+    </div>
+
+    <ion-list lines="none">
+      <h2>برجاء ادخال كود التاكيد</h2>
+      <div class="otp">
+
+        <ng-otp-input style="direction: ltr" (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+      </div>
+
+      <div class="resend">
+        <p>تم ارسال كود التحقق</p>
+        <p *ngIf="time > 0">يرجي الانتظار {{time}} ثانية</p>
+      </div>
+    </ion-list>
+
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="btn">
+      <ion-button mode="ios" fill="clear" expand="block" [disabled]="time > 0" (click)="reSend()">
+        اعادة الارسال
+      </ion-button>
+      <ion-button mode="ios" color="primary" expand="block" [disabled]="!code" (click)="sendCode()">
+        ارسال
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -9,9 +9,7 @@
 
     <h2>اهلا بك في <br> تطبيق <span>سبيدوو</span></h2>
   </div>
-</ion-header>
 
-<ion-content>
   <hr style="height: 12px; width: 100%; background-color: #F5F5F5;border: none;margin-top: 32px;">
 
   <ion-segment [(ngModel)]="segmentVal" (ionChange)="segmentChanged($event)">
@@ -22,19 +20,35 @@
       <ion-label>حساب جديد</ion-label>
     </ion-segment-button>
   </ion-segment>
+</ion-header>
+
+<ion-content>
+
 
   <ion-slides #mySlider pager="false" [options]="slideOpts" (ionSlideDidChange)="slideChanged($event)">
-
 
     <ion-slide>
       <form class="container" [formGroup]="loginForm">
         <p>رقم الهاتف</p>
-        <ion-item>
-          <ion-input type="tel" placeholder="01XXXXXXXXXX" formControlName="phone"></ion-input>
-          <ion-label class="flag" slot="end">(+20)
-            <img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/num_egpt.svg" alt="">
+        <div class="myItem">
+          <ion-input style="width: 66%;
+          display: inline-block;" slot="start" type="tel" placeholder="01XXXXXXXXXX" formControlName="phone">
+          </ion-input>
+          <ion-label class="flag" slot="end" style="width: 34%;
+          display: inline-block;">
+            <!-- (+20)
+            <img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/num_egpt.svg" alt=""> -->
+
+            <ion-select multiple="false" interface="popover" value="IQ" (ionChange)="changeCountry($event)">
+              <ion-select-option *ngFor="let code of counrtyCodesPhone" [value]="code.countryCode">{{code.flag}}
+                (+{{code.countryCallingCode}})
+              </ion-select-option>
+            </ion-select>
+
+
           </ion-label>
-        </ion-item>
+        </div>
+
         <p>كلمة السر</p>
         <ion-item>
           <ion-input [type]="showPass ? 'text' : 'password'" placeholder="ادخل كلمة السر" formControlName="password">
@@ -52,15 +66,15 @@
 
         <ion-row>
           <ion-col size="6">
-            <ion-button (click)="google()" expand="block" fill="clear">
+            <ion-button (click)="googleSing()" expand="block" fill="clear">
               <img slot="start" src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/google.svg">
               <ion-label> جوجل</ion-label>
             </ion-button>
           </ion-col>
           <ion-col size="6">
-            <ion-button (click)="facebook()" expand="block" fill="clear">
-              <img slot="start" src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/facebook.svg">
-              <ion-label>فيسبوك</ion-label>
+            <ion-button (click)="AppleSignIn()" expand="block" fill="clear">
+              <img slot="start" src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/apple.svg">
+              <ion-label>أبل</ion-label>
             </ion-button>
           </ion-col>
 
@@ -72,12 +86,21 @@
     <ion-slide>
       <form class="container" [formGroup]="signForm">
         <p>رقم الهاتف</p>
-        <ion-item>
-          <ion-input type="tel" placeholder="01XXXXXXXXXX" formControlName="phone"></ion-input>
-          <ion-label class="flag" slot="end">(+20)
-            <img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/num_egpt.svg" alt="">
+        <div class="myItem">
+          <ion-input type="tel" placeholder="01XXXXXXXXXX" formControlName="phone" style="width: 66%;
+          display: inline-block;"></ion-input>
+          <ion-label class="flag" slot="end" style="width: 34%;
+          display: inline-block;">
+            <!-- (+20)
+            <img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/num_egpt.svg"
+            alt=""> -->
+            <ion-select multiple="false" interface="popover" value="IQ" (ionChange)="changeCountry($event)">
+              <ion-select-option *ngFor="let code of counrtyCodesPhone" [value]="code.countryCode">{{code.flag}}
+                +{{code.countryCallingCode}}
+              </ion-select-option>
+            </ion-select>
           </ion-label>
-        </ion-item>
+        </div>
         <p>كلمة السر</p>
         <ion-item>
           <ion-input [type]="showPass ? 'text' : 'password'" placeholder="ادخل كلمة السر" formControlName="password">
@@ -92,7 +115,7 @@
           <ion-icon (click)="show()" slot="end" [name]="showPass ?'eye-off-outline' : 'eye-outline'"></ion-icon>
         </ion-item>
 
-        <ion-button class="submit " (click)="sign()" expand="block">
+        <ion-button class="submit " (click)="otp()" expand="block">
           التسجيل
         </ion-button>
 
