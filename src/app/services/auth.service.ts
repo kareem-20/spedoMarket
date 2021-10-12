@@ -4,23 +4,25 @@ import { Storage } from '@ionic/storage-angular';
 import { take } from 'rxjs/operators';
 import { from } from 'rxjs';
 import { NavController, Platform } from '@ionic/angular';
+import { Address } from '../interfaces/address';
+import { User } from '../interfaces/user';
 
 
 
 const USER_DATA = 'userData'
 const ACCESS_TOKEN = 'accessToken';
 const REFRESH_TOKEN = 'refreshToken';
-
+const MY_ADDRESS = 'my_address';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
 
-  userData = null;
+  userData: User = null;
   accessToken;
   refreshToken;
-
+  myAddress: Address;
   constructor(
     private api: ApiService,
     private storage: Storage,
@@ -39,8 +41,8 @@ export class AuthService {
   async saveCreadintial(res: { accessToken: string; user: any; refreshToken: string; }) {
     localStorage.setItem(ACCESS_TOKEN, res.accessToken);
     this.userData = await this.storage.set(USER_DATA, res.user)
-    this.accessToken = await this.storage.set(ACCESS_TOKEN, res.accessToken)
-    this.refreshToken = await this.storage.set(REFRESH_TOKEN, res.refreshToken)
+    this.accessToken = await this.storage.set(ACCESS_TOKEN, res.accessToken);
+    this.refreshToken = await this.storage.set(REFRESH_TOKEN, res.refreshToken);
   }
 
   async getCreadintial() {
@@ -52,6 +54,9 @@ export class AuthService {
 
     const refreshToken = await this.storage.get(REFRESH_TOKEN);
     this.refreshToken = refreshToken == null ? null : refreshToken;
+
+    const myAddress = await this.storage.get(MY_ADDRESS);
+    this.myAddress = myAddress == null ? null : myAddress;
 
   }
 
@@ -69,6 +74,15 @@ export class AuthService {
       )
     })
     return from(promise)
+  }
+
+
+  async updateUserData(user) {
+    this.userData = await this.storage.set(USER_DATA, user);
+  }
+
+  async setmyAddress(myaddress) {
+    this.myAddress = await this.storage.set(MY_ADDRESS, myaddress);
   }
 
   async clearCreadintial() {

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Item } from 'src/app/interfaces/item';
+import { DataService } from '../../services/data.service';
+import { HelperService } from '../../services/helper.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,6 +11,8 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./product-detail.page.scss'],
 })
 export class ProductDetailPage implements OnInit {
+
+  item: Item;
 
   slidesOptions = {
     initialSlide: 0,
@@ -18,16 +24,38 @@ export class ProductDetailPage implements OnInit {
     loop: true
   };
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private dataService: DataService,
+    private helper: HelperService,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
+    this.item = this.dataService.getParams().item;
+    // this.item
+  }
+
+  addToCart() {
+
   }
 
   back() {
     this.navCtrl.back();
   }
+
   toCart() {
     this.navCtrl.navigateForward('/cart')
   }
+
+  detail(item) {
+    this.dataService.setParams({ item });
+    this.navCtrl.navigateForward('/product-detail');
+  }
+
+  toggleFav(item: Item) {
+    this.cartService.toggleFav(item).then(_ => {
+      console.log('item', item)
+    })
+  }
+
 }

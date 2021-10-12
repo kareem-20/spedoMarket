@@ -9,5 +9,6 @@ export interface Address {
   userId?: string,
   zone?: string,
   street?: string,
-  mark?: string
+  mark?: string,
+  checked?: boolean
 }

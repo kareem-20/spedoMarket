@@ -4,5 +4,6 @@
     <domain includeSubdomains="true">localhost</domain>
     <domain includeSubdomains="true">209.250.237.58</domain>
     <domain includeSubdomains="true">192.168.1.15</domain>
+    <domain includeSubdomains="true">iraqs</domain>
   </domain-config>
 </network-security-config>

@@ -14,7 +14,7 @@
 
   <ion-slides pager="ios" [options]="slidesOptions">
     <ion-slide>
-      <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+      <img [src]="item.IMG_URL" alt="">
     </ion-slide>
     <ion-slide>
       <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
@@ -29,14 +29,16 @@
 
   <div class="title">
     <div class="start">
-      <p>أجندة بقلم ريشة بخامات ممتازة</p>
-      <h6>120 جنية</h6>
-      <span class="not">غير متوفر</span>
+      <p>{{item.ITEM_NAME}}</p>
+      <h6>{{item.PRICE_COST}} جنية</h6>
+      <!-- <span class="not">غير متوفر</span> -->
     </div>
     <div class="end">
       <ion-buttons slot="end">
-        <ion-button>
-          <img src="../../../assets/Icon&Svg/2.product details/svg/like.svg" alt="">
+        <ion-button [ngClass]="item.favorite ? 'active' : '' " (click)="toggleFav(item)">
+          <img
+            [src]="item.favorite ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like_act.svg' :'../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like.svg'"
+            alt="">
         </ion-button>
         <ion-button>
           <img src="../../../assets/Icon&Svg/2.product details/svg/share.svg" alt="">
@@ -62,8 +64,9 @@
     </ion-item>
     <div class="info">
       <h4>الوصف</h4>
-      <p>أجندة بقلم ريشة بخامات ممتازة...أجندة بقلم ريشة بخامات ممتازة...أجندة بقلم ريشة بخامات ممتازة..أجندة بقلم ريشة
-        بخامات ممتازة..</p>
+      <!-- <p>أجندة بقلم ريشة بخامات ممتازة...أجندة بقلم ريشة بخامات ممتازة...أجندة بقلم ريشة بخامات ممتازة..أجندة بقلم ريشة
+        بخامات ممتازة..</p> -->
+      <p>{{item.FULL_NAME}}</p>
     </div>
   </div>
 
@@ -73,7 +76,7 @@
         <ion-button>
           <img src="../../../assets/Icon&Svg/2.product details/svg/add.svg" alt="">
         </ion-button>
-        <ion-label>12</ion-label>
+        <ion-label>1</ion-label>
         <ion-button>
           <img src="../../../assets/Icon&Svg/2.product details/svg/low.svg" alt="">
         </ion-button>

@@ -16,7 +16,8 @@
 
       <ion-item lines="none" class="profile" button="true" (click)="profile()">
         <div class="image" slot="start">
-          <img [src]="user?.image ? user?.image :'../../../assets/Icon&Svg/6.profile/svg/normal_avatar.svg'" />
+          <img
+            [src]="user?.image ? 'http://192.168.1.15:3000/'+user?.image :'../../../assets/Icon&Svg/6.profile/svg/normal_avatar.svg'" />
         </div>
         <ion-label>
           <p>اهلا بك</p>

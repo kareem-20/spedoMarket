@@ -4,6 +4,7 @@ import { DrawerState } from 'ion-bottom-drawer';
 import { SheetState } from 'ion-bottom-sheet';
 import { User } from '../../interfaces/user';
 import { AuthService } from '../../services/auth.service';
+import { HelperService } from '../../services/helper.service';
 
 @Component({
   selector: 'app-account',
@@ -19,13 +20,17 @@ export class AccountPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private authService: AuthService
+    private authService: AuthService,
+    private helper: HelperService
   ) { }
 
   ngOnInit() {
-    this.user = this.authService.userData;
-    console.log('this.user', this.user);
-    console.log('auth UserData', this.authService.userData);
+    this.authService.getCreadintial().then(_ => {
+
+      this.user = this.authService.userData;
+      console.log('this.user', this.user);
+      console.log('auth UserData', this.authService.userData);
+    });
   }
 
   toCart() {
@@ -35,7 +40,12 @@ export class AccountPage implements OnInit {
 
 
   toAddress() {
-    this.navCtrl.navigateForward('/address')
+    if (this.user) {
+      this.navCtrl.navigateForward('/address')
+    } else {
+      this.navCtrl.navigateRoot('/sign')
+      this.helper.showToast('سجل دخول اولاً')
+    }
   }
 
   toFav() {
@@ -43,7 +53,12 @@ export class AccountPage implements OnInit {
   }
 
   profile() {
-    this.navCtrl.navigateForward('/profile')
+    if (this.user) {
+      this.navCtrl.navigateForward('/profile')
+    } else {
+      this.navCtrl.navigateRoot('/sign')
+      this.helper.showToast('سجل دخول اولاً')
+    }
   }
 
   openSheet() {
@@ -54,5 +69,7 @@ export class AccountPage implements OnInit {
   contact() {
     this.navCtrl.navigateForward('/contact')
   }
+
+
 
 }

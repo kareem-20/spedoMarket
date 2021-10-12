@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service';
 import { MapPage } from '../map/map.page';
 import { Address } from '../../interfaces/address';
 import { HelperService } from '../../services/helper.service';
+import { User } from '../../interfaces/user';
+import { Events } from 'src/app/interfaces/events';
 
 declare var google: any;
 
@@ -20,10 +22,11 @@ export class AddressConfigPage implements OnInit {
 
   currentLocation: { lat: number, lng: number };
   title: string;
+  city: string;
   zone: string;
   street: string;
   mark: string;
-  userId;
+  user: User;
   @ViewChild('smallMap', { static: true }) smallMap: ElementRef
   constructor(
     private navCtrl: NavController,
@@ -35,21 +38,24 @@ export class AddressConfigPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user = this.authService.userData
+
   }
 
   ionViewWillEnter() {
-    this.userId = this.authService.userData?._id
-    this.address = this.dataService.getParams()?.address
+    this.address = this.dataService.getParams()?.address;
+    console.log('userId', this.user)
+
     if (this.address) this.patchData();
   }
 
   patchData() {
     this.title = this.address.title;
+    this.city = this.address.city;
     this.mark = this.address.mark;
     this.zone = this.address.zone;
     this.street = this.address.street;
     this.currentLocation = this.address.position;
-
     this.initMap();
   }
 
@@ -84,7 +90,8 @@ export class AddressConfigPage implements OnInit {
     modal.present();
     let data = await modal.onDidDismiss();
     if (data.data) {
-      if (data.data) this.initMap()
+      if (data.data) this.initMap();
+      this.currentLocation = data.data
       console.log('data of modal', data.data)
     } else {
       this.helper.showToast('فشل تحديد الموقع يرجي المحاولة مرة اخري')
@@ -97,34 +104,40 @@ export class AddressConfigPage implements OnInit {
 
     let body = {
       title: this.title,
+      city: this.city,
       zone: this.zone,
       street: this.street,
       position: this.currentLocation,
       mark: this.mark,
-      userId: this.userId
+      userId: this.user._id
     }
 
     console.log('address', body)
     if (this.address) { // edit address
 
-      this.api.updateData(`/address/update/${this.address._id}`, body)
+      this.api.updateData(`/api/address/update/${this.address._id}`, body)
         .subscribe((res) => {
           this.done();
         }, (err) => {
           console.log('err', err)
+          this.helper.showToast('خطأ في السيرفر جاول مجددا')
+          this.helper.dismissLoading()
         })
     } else { // add new address
 
-      this.api.postData('/address/add', body).subscribe((res) => {
+      this.api.postData('/api/address/add', body).subscribe((res) => {
         this.done();
       }, (err) => {
         console.log('err', err)
+        this.helper.showToast('خطأ في السيرفر جاول مجددا')
+        this.helper.dismissLoading()
       })
     }
   }
 
   done() {
     this.navCtrl.navigateBack('/address').then(_ => {
+      this.helper.emitEvent(Events.refreshAddress)
       this.dataService.setParams({})
       this.helper.dismissLoading()
     })

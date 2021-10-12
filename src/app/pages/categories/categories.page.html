@@ -16,7 +16,7 @@
     <div class="container">
       <ion-row>
         <ion-col size="6">
-          <h2>(3) اقسام</h2>
+          <h2>({{categories.length}}) اقسام</h2>
         </ion-col>
         <ion-col size="6">
           <ion-button fill="clear" (click)="changeView()">
@@ -31,21 +31,21 @@
 
   <div class="firstView" *ngIf="numView ==0">
     <div class="container">
-      <div class="item">
-        <ion-row>
+      <div class="item" *ngFor="let category of categories">
+        <ion-row (click)="items_by_category(category)">
           <ion-col size="4">
             <div class="image">
-              <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/notebook.png">
+              <img [src]="category.CATEGORY_IMAGE_PATH">
             </div>
           </ion-col>
           <ion-col size="8">
-            <h3>نوت بوك</h3>
-            <p>اكثر من 150 نوت بوك</p>
+            <h3>{{category.CATEGORY_NAME}}</h3>
+            <p>{{category.item_count}}</p>
           </ion-col>
         </ion-row>
       </div>
 
-      <div class="item">
+      <!-- <div class="item">
         <ion-row>
           <ion-col size="4">
             <div class="image">
@@ -71,7 +71,7 @@
             <p>أكثر من 350 كتاب</p>
           </ion-col>
         </ion-row>
-      </div>
+      </div> -->
 
     </div>
   </div>
@@ -79,17 +79,17 @@
   <div class="secondView" *ngIf="numView ==1">
     <div class="container">
 
-      <ion-card>
-        <ion-card-header>
-          <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/notebook.png" alt="">
+      <ion-card *ngFor="let category of categories">
+        <ion-card-header (click)="items_by_category(category)">
+          <img [src]="category.CATEGORY_IMAGE_PATH" alt="">
         </ion-card-header>
-        <ion-card-content>
-          <h3>نوت بوك</h3>
-          <p>اكثر من 150 نوت بوك</p>
+        <ion-card-content (click)="items_by_category(category)">
+          <h3>{{category.CATEGORY_NAME}}</h3>
+          <p>{{category.item_count}}</p>
         </ion-card-content>
       </ion-card>
 
-      <ion-card>
+      <!-- <ion-card>
         <ion-card-header>
           <img src="../../../assets/Icon&Svg/4.categorie/android/drawable-hdpi/kids.png">
         </ion-card-header>
@@ -107,7 +107,7 @@
           <h3>عالم القراءة</h3>
           <p>أكثر من 350 كتاب</p>
         </ion-card-content>
-      </ion-card>
+      </ion-card> -->
 
     </div>
   </div>

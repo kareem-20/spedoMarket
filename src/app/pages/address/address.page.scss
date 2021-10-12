@@ -1,5 +1,7 @@
 ion-header {
   ion-button {
+    z-index: 99;
+
     ion-icon {
       font-size: 20px;
       color: #292929;
@@ -33,7 +35,7 @@ ion-content {
     ion-card {
       box-shadow: 0 3px 6px #00000029;
       border-radius: 8px;
-      margin: 0;
+      margin-inline: 0;
 
       ion-card-header {
         background-color: rgba($color: #B2B2B2, $alpha: .08);

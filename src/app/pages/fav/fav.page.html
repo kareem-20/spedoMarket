@@ -28,4 +28,20 @@
     </div>
   </div>
 
+  <div *ngIf="!emptyView" class="view">
+    <div class="item" *ngFor="let item of fav;let i = index">
+      <div class="image" (click)="detail(item)">
+        <span class="discount">{{item?.PRICE_SALE_CUR}}</span>
+        <img [src]="item?.IMG_URL" alt="">
+      </div>
+      <div class="info" (click)="detail(item)">
+        <h3>{{item?.ITEM_NAME}}</h3>
+        <p>{{item?.PRICE_SALE_3}} ج <span>{{item?.PRICE_SALE_1}} ج</span></p>
+      </div>
+      <ion-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
 </ion-content>

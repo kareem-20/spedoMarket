@@ -57,6 +57,11 @@ ion-slide {
         background-color: #F3F3F3;
         border-radius: 4px;
       }
+
+      ion-button.active {
+        background-color: #fff !important;
+        border: 1px solid #B3191959 !important;
+      }
     }
   }
 }

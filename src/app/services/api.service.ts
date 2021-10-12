@@ -7,7 +7,8 @@ import { take } from 'rxjs/operators';
 })
 export class ApiService {
 
-  BaseUrl = 'http://192.168.1.15:3000'
+  BaseUrl = 'http://192.168.1.15:3000';
+  BaseUrl2 = "https://mooni.ngrok.io";
   constructor(
     private http: HttpClient
   ) { }
@@ -26,6 +27,10 @@ export class ApiService {
 
   deleteData(endPoint) {
     return this.http.delete(this.BaseUrl + endPoint).pipe(take(1));
+  }
+
+  getOtherData(endPoint) {
+    return this.http.get(this.BaseUrl2 + endPoint).pipe(take(1));
   }
 
 

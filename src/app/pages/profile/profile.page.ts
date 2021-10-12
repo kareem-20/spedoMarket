@@ -6,6 +6,7 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { ApiService } from '../../services/api.service';
 import { User } from '../../interfaces/user';
 import { AuthService } from '../../services/auth.service';
+import { HelperService } from '../../services/helper.service';
 
 var fileReader = new FileReader();
 
@@ -53,7 +54,8 @@ export class ProfilePage implements OnInit {
     private file: File,
     private fileTransfer: FileTransfer,
     private api: ApiService,
-    private authService: AuthService
+    private authService: AuthService,
+    private helper: HelperService
   ) { }
 
   ngOnInit() {
@@ -154,6 +156,7 @@ export class ProfilePage implements OnInit {
   }
 
   saveInfo() {
+    this.helper.showLoading();
     let userData = {
       name: this.user.name,
       image: this.resultUpload,
@@ -161,7 +164,21 @@ export class ProfilePage implements OnInit {
       gender: this.user.gender
     }
 
-    console.log('user data', userData)
+    this.api.updateData('/auth/user/update/' + this.user._id, userData).subscribe((res) => {
+      if (res) {
+        console.log('res', res);
+        this.authService.updateUserData(res);
+        this.helper.dismissLoading();
+        this.navCtrl.navigateBack('/tabs/account')
+      }
+    }, (err) => {
+      console.log('err', err);
+      this.helper.showToast('حدث خطأ فالعملية يرجي المحاولة مجددا');
+      this.helper.dismissLoading();
+
+    });
+
+
   }
 
 

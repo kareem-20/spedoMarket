@@ -28,7 +28,7 @@
 
       <p>المدينة</p>
       <ion-item>
-        <ion-select [(ngModel)]="title" placeholder="zag" mode="ios" interface="action-sheet">
+        <ion-select [(ngModel)]="city" placeholder="zag" mode="ios" interface="action-sheet">
           <ion-select-option value="cairo">القاهرة</ion-select-option>
           <ion-select-option value="giza">الجيزة</ion-select-option>
           <ion-select-option value="alex">الاسكندرية</ion-select-option>
@@ -87,7 +87,7 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="block" [disabled]="!currentLocation || !title || !userId " (click)="addAddress()">
+    <ion-button expand="block" (click)="addAddress()">
       حفظ المعلومات
     </ion-button>
   </ion-toolbar>

@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class HelperService {
 
   loading = new BehaviorSubject(false);
+  events = new BehaviorSubject(null)
 
   constructor(
     private toastCtrl: ToastController,
@@ -33,6 +34,15 @@ export class HelperService {
   watchLoading() {
     return this.loading.asObservable();
   }
+
+  emitEvent(eventName: string) {
+    this.events.next(eventName)
+  }
+
+  onChangeEvent() {
+    return this.events.asObservable();
+  }
+
 
 
 }

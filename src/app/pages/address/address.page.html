@@ -27,52 +27,56 @@
 
     <h3 class="title">العنوان الأساسي</h3>
 
-    <ion-radio-group name="auto" value="0">
-      <ion-card>
-        <ion-card-header>
-          <ion-item lines="none">
-            <ion-radio slot="start" value="0"></ion-radio>
-            <ion-label><strong>المنزل </strong> </ion-label>
-            <ion-buttons slot="end">
-              <ion-button fill="clear" class="edit">
-                <img src="../../../assets/Icon&Svg/8.my location/svg/edit.svg" alt="">
-              </ion-button>
-              <ion-button fill="clear" class="delete" (click)="deleteAddress()">
-                <img src="../../../assets/Icon&Svg/8.my location/svg/delet.svg" alt="">
-              </ion-button>
-            </ion-buttons>
-          </ion-item>
-        </ion-card-header>
-        <ion-card-content>
-          <p>القاهرة_مدينة نصر</p>
-          <p>شارع التحرير</p>
-        </ion-card-content>
-      </ion-card>
+    <ion-radio-group name="auto" [value]="myAddress" (ionChange)="change($event)">
+      <div *ngIf="myAddress">
+
+        <ion-card>
+          <ion-card-header>
+            <ion-item lines="none">
+              <ion-radio slot="start" [value]="myAddress"></ion-radio>
+              <ion-label><strong>{{myAddress?.title}}</strong> </ion-label>
+              <ion-buttons slot="end">
+                <ion-button fill="clear" class="edit" (click)="edit(myAddress)">
+                  <img src="../../../assets/Icon&Svg/8.my location/svg/edit.svg" alt="">
+                </ion-button>
+                <!-- <ion-button fill="clear" class="delete" (click)="deleteAddress(myAddress)">
+                  <img src="../../../assets/Icon&Svg/8.my location/svg/delet.svg" alt="">
+                </ion-button> -->
+              </ion-buttons>
+            </ion-item>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{myAddress?.city}} - {{myAddress?.zone}}</p>
+            <p>{{myAddress?.street}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div *ngIf="otherAddress.length">
 
 
-      <h3 class="title">العناوين الآخرى</h3>
-
-      <ion-card>
-        <ion-card-header>
-          <ion-item lines="none">
-            <ion-radio slot="start" value="1"></ion-radio>
-            <ion-label><strong>المنزل </strong> </ion-label>
-            <ion-buttons slot="end">
-              <ion-button fill="clear" class="edit">
-                <img src="../../../assets/Icon&Svg/8.my location/svg/edit.svg" alt="">
-              </ion-button>
-              <ion-button fill="clear" class="delete">
-                <img src="../../../assets/Icon&Svg/8.my location/svg/delet.svg" alt="">
-              </ion-button>
-            </ion-buttons>
-          </ion-item>
-        </ion-card-header>
-        <ion-card-content>
-          <p>القاهرة_مدينة نصر</p>
-          <p>شارع التحرير</p>
-        </ion-card-content>
-      </ion-card>
-
+        <h3 class="title">العناوين الآخرى</h3>
+        <ion-card *ngFor="let ad of otherAddress;let i = index">
+          <ion-card-header>
+            <ion-item lines="none">
+              <ion-radio slot="start" [value]="ad"></ion-radio>
+              <ion-label><strong>{{ad?.title}} </strong> </ion-label>
+              <ion-buttons slot="end">
+                <ion-button fill="clear" class="edit" (click)="edit(ad)">
+                  <img src="../../../assets/Icon&Svg/8.my location/svg/edit.svg" alt="">
+                </ion-button>
+                <ion-button fill="clear" class="delete" (click)="deleteAddress(ad,i)">
+                  <img src="../../../assets/Icon&Svg/8.my location/svg/delet.svg" alt="">
+                </ion-button>
+              </ion-buttons>
+            </ion-item>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ad?.city}} - {{ad?.zone}}</p>
+            <p>{{ad?.street}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </ion-radio-group>
 
   </div>
