@@ -49,9 +49,20 @@
             <ion-card-content>
               <ion-card-title (click)="detail(item)">{{item?.ITEM_NAME}}</ion-card-title>
               <p (click)="detail(item)">{{item?.PRICE_SALE_3}} ج <span>{{item?.PRICE_SALE_1}} ج</span></p>
-              <ion-button expand="block">
+              <ion-button *ngIf="!item.addedToCart" class="add" expand="block" (click)="addToCart(item)">
                 إضافة للسلة
               </ion-button>
+              <div class="qount" *ngIf="item.addedToCart">
+                <ion-buttons>
+                  <ion-button (click)="increase(item,i)">
+                    <img src="../../../assets/Icon&Svg/2.product details/svg/add.svg" alt="">
+                  </ion-button>
+                  <ion-label>{{item?.UNIT_QTY}}</ion-label>
+                  <ion-button (click)="decrease(item,i)">
+                    <img src="../../../assets/Icon&Svg/2.product details/svg/low.svg" alt="">
+                  </ion-button>
+                </ion-buttons>
+              </div>
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -80,6 +91,7 @@
 
   <div class="secondView" *ngIf="numView ==1">
     <div class="item" *ngFor="let item of items;let i = index">
+
       <div class="image" (click)="detail(item)">
         <span class="discount">{{item?.PRICE_SALE_CUR}}</span>
         <img [src]="item?.IMG_URL" alt="">
@@ -88,9 +100,16 @@
         <h3>{{item?.ITEM_NAME}}</h3>
         <p>{{item?.PRICE_SALE_3}} ج <span>{{item?.PRICE_SALE_1}} ج</span></p>
       </div>
-      <ion-button>
-        <ion-icon name="add"></ion-icon>
-      </ion-button>
+      <div>
+        <!-- <span class="fav" [ngClass]="item.favorite ? 'active' : '' " (click)="toggleFav(item)">
+          <img
+            [src]="item.favorite ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like_act.svg' :'../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like.svg'"
+            alt="">
+        </span> -->
+        <ion-button>
+          <ion-icon name="add" (click)="addToCart(item)"></ion-icon>
+        </ion-button>
+      </div>
     </div>
   </div>
 

@@ -34,10 +34,11 @@ export class ProductsPage implements OnInit {
     this.helper.showLoading();
 
     this.api.getOtherData('/api/item/search-by-category?category_id=' + this.category.CATEGORY_CODE)
-      .subscribe((res: any) => {
+      .subscribe(async (res: any) => {
         this.items.push(...res.data)
-        this.checkFav();
-        console.log('res', res.data)
+        await this.checkFav();
+        await this.checkCart();
+        console.log('items', this.items)
         this.helper.dismissLoading()
       }, (err) => {
         console.log('err', err)
@@ -63,7 +64,18 @@ export class ProductsPage implements OnInit {
     this.navCtrl.navigateForward('/product-detail');
   }
 
-  checkFav() {
+  async checkCart() {
+    this.items.forEach(item => {
+      this.cartService.cart.forEach(ca => {
+        if (item.ITEM_CODE === ca.ITEM_CODE) {
+          item.addedToCart = true;
+          item.UNIT_QTY = ca.UNIT_QTY;
+        }
+      })
+    })
+  }
+
+  async checkFav() {
     this.items.forEach(item => {
       this.cartService.fav.forEach(fav => {
         if (item.ITEM_CODE === fav.ITEM_CODE) {
@@ -71,6 +83,18 @@ export class ProductsPage implements OnInit {
         }
       });
     });
+  }
+
+  increase(item: Item, i) {
+    this.cartService.cart.forEach(c => {
+      if (c.ITEM_CODE === item.ITEM_CODE) c.UNIT_QTY++, item.UNIT_QTY = c.UNIT_QTY;
+    })
+  }
+
+  decrease(item, i) {
+    this.cartService.cart.forEach(c => {
+      if (c.ITEM_CODE === item.ITEM_CODE) c.UNIT_QTY--, item.UNIT_QTY = c.UNIT_QTY;
+    })
   }
 
   // async getSaved() {
@@ -88,9 +112,11 @@ export class ProductsPage implements OnInit {
     })
   }
 
-  // addToSaved(car: Cars) {
-  //   this.savedService.addToSaved(car);
-  // }
+  addToCart(item) {
+    this.cartService.addToCart(item);
+    item.addedToCart = true;
+    this.helper.showToast('تم اضافة العنصر الي سلة المشتريات')
+  }
 
 
 }

@@ -35,9 +35,6 @@ export class ProductDetailPage implements OnInit {
     // this.item
   }
 
-  addToCart() {
-
-  }
 
   back() {
     this.navCtrl.back();
@@ -57,5 +54,32 @@ export class ProductDetailPage implements OnInit {
       console.log('item', item)
     })
   }
+  increase(item: Item) {
+    if (item.addedToCart) {
+      this.cartService.cart.forEach(c => {
+        if (c.ITEM_CODE === item.ITEM_CODE) c.UNIT_QTY++, item.UNIT_QTY = c.UNIT_QTY;
+      })
+    } else {
+      item.UNIT_QTY++
+    }
+  }
+
+  decrease(item) {
+    if (item.addedToCart) {
+      this.cartService.cart.forEach(c => {
+        if (c.ITEM_CODE === item.ITEM_CODE) c.UNIT_QTY--, item.UNIT_QTY = c.UNIT_QTY;
+      })
+    } else {
+      item.UNIT_QTY--
+    }
+  }
+
+  addToCart() {
+    if (!this.item.addedToCart) {
+      this.cartService.addToCart(this.item);
+      this.item.addedToCart = true;
+    }
+  }
+
 
 }

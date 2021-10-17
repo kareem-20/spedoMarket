@@ -12,8 +12,8 @@ const FAV = 'fav';
 })
 export class CartService {
 
-  cart: Item[] = [];
-  fav: Item[] = [];
+  public cart: Item[] = [];
+  public fav: Item[] = [];
 
   reloaded: boolean = false;
   cartCount = new BehaviorSubject(0);
@@ -57,22 +57,57 @@ export class CartService {
   }
 
   async addToCart(item: Item) {
-    if (!this.reloaded) await this.reloadAll();
-    this.helper.showLoading();
+    // if (!this.reloaded) await this.reloadAll();
+    // this.helper.showLoading();
 
-    const filter = this.cart.filter((c) => {
-      return c?.ITEM_CODE == item.ITEM_CODE;
-    });
+    // console.log('this.cart before filter', this.cart)
+    // if (this.cart.length === 0) this.cart.push(item)
+    // this.cart.filter((c) => {
+    //   return item?.ITEM_CODE == c.ITEM_CODE ? c.UNIT_QTY += 1 : this.cart.push(item);
+    // });
 
-    if (filter.length) {
-      this.helper.dismissLoading();
-      this.helper.showToast('تم ازالة المنتج ');
-    } else {
-      this.cart.push(item);
-      await this.storage.set(CART, this.cart);
-      this.helper.showToast('تم حفظ المتج');
-      this.helper.dismissLoading();
+    // console.log('this.cart after filter', this.cart)
+
+    let added = false;
+    if (!item.UNIT_QTY) {
+      item.UNIT_QTY = 1;
     }
+    for (const p of this.cart) {
+      if (p.ITEM_CODE === item.ITEM_CODE) {
+        added = true;
+        p.UNIT_QTY += 1;
+        break;
+      }
+    }
+    if (!added) {
+      this.cart.push(item);
+    }
+    this.cartCount.next(this.cartCount.value + 1);
+    console.log('this.cart', this.cart);
+    console.log('this count', this.cartCount)
+    return this.storage.set(CART, this.cart)
+    // this.helper.dismissLoading();
+    // }
+  }
+
+  increase(i) {
+    this.cart[i].UNIT_QTY += 1;;
+    this.saveCart()
+  }
+
+  decrease(i) {
+    this.cart[i].UNIT_QTY -= 1;
+    this.saveCart()
+  }
+
+  remove(i) {
+    this.cart.splice(i, 1)
+    this.cartCount.next(this.cartCount.value - 1)
+    this.saveCart()
+  }
+
+  saveCart() {
+    return this.storage.set(CART, this.cart)
   }
 
   async removeFromCart(index) {

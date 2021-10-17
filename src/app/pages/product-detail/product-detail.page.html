@@ -73,88 +73,29 @@
   <div class="cart">
     <div class="qount">
       <ion-buttons>
-        <ion-button>
+        <ion-button (click)="increase(item)">
           <img src="../../../assets/Icon&Svg/2.product details/svg/add.svg" alt="">
         </ion-button>
-        <ion-label>1</ion-label>
-        <ion-button>
+        <ion-label>{{item.UNIT_QTY}}</ion-label>
+        <ion-button (click)="decrease(item)">
           <img src="../../../assets/Icon&Svg/2.product details/svg/low.svg" alt="">
         </ion-button>
       </ion-buttons>
     </div>
     <div class="adding">
-      <ion-button expand="block" fill="solid" mode="ios">
-        إضافة لسلة المشتريات
+      <ion-button expand="block" fill="solid" mode="ios" [ngClass]="item.addedToCart ? 'added' :'' "
+        (click)="addToCart()" [disabled]="item?.addedToCart">
+        {{ item.addedToCart ? 'تمت إضافته للسلة' : 'إضافة لسلة المشتريات' }}
       </ion-button>
-    </div>
-  </div>
-
-
-  <div class="cards">
-    <ion-item lines="none">
-      <ion-label slot="start">عادة يتم الشراء معه</ion-label>
-      <!-- <ion-label slot="end">
-        المزيد
-      </ion-label> -->
-    </ion-item>
-    <div class="prodCards">
-      <ion-card>
-        <ion-card-header>
-          <span class="discount">15%-</span>
-          <!-- <span class="fav">
-            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
-          </span> -->
-          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-title>أجندة بقلم ريشة بخامات ممتازة</ion-card-title>
-          <p>150 ج <span>170 ج</span></p>
-          <ion-button>
-            <ion-icon name="add"></ion-icon>
-          </ion-button>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <span class="discount">15%-</span>
-          <!-- <span class="fav">
-            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
-          </span> -->
-          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product-1.png" alt="">
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-title>نوت بوك خشب مطبوع مقاس A5</ion-card-title>
-          <p>150 ج <span>170 ج</span></p>
-          <ion-button>
-            <ion-icon name="add"></ion-icon>
-          </ion-button>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <span class="discount">15%-</span>
-          <!-- <span class="fav">
-            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
-          </span> -->
-          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product 3.png" alt="">
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-title>نوت بوك خشب مطبوع مقاس A5</ion-card-title>
-          <p>150 ج <span>170 ج</span></p>
-          <ion-button>
-            <ion-icon name="add"></ion-icon>
-          </ion-button>
-        </ion-card-content>
-      </ion-card>
     </div>
   </div>
 
   <div class="cards">
     <ion-item lines="none">
       <ion-label slot="start">منتجات مشابهة</ion-label>
-      <!-- <ion-label slot="end">
+      <ion-label slot="end">
         المزيد
-      </ion-label> -->
+      </ion-label>
     </ion-item>
     <div class="prodCards">
       <ion-card>

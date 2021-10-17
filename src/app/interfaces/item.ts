@@ -33,5 +33,6 @@ export interface Item {
   CATEGORY_NAME_EN: string,
   CATEGORY_IMAGE_PATH: string,
   ID_APPLICATION: number,
-  favorite: boolean
+  favorite?: boolean,
+  addedToCart?: boolean
 }

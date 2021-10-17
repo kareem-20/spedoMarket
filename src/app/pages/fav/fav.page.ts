@@ -24,11 +24,14 @@ export class FavPage implements OnInit {
   ngOnInit() {
     this.helper.showLoading();
     this.cartService.reloadAll().then(_ => {
-      this.fav = this.cartService.getfav;
+      this.fav = this.cartService.fav;
       console.log('this.fav', this.fav)
       if (this.fav.length == 0) this.emptyView = true;
+      else this.emptyView = false;
+
+      this.helper.dismissLoading();
+
     });
-    this.helper.dismissLoading();
   }
 
   back() {
@@ -48,5 +51,13 @@ export class FavPage implements OnInit {
         }
       });
     });
+  }
+
+  trackBy(index: number, pro: Item): number {
+    return pro.ITEM_CODE;
+  }
+
+  toggleFav(item) {
+    this.cartService.toggleFav(item);
   }
 }

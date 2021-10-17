@@ -22,11 +22,11 @@ const routes: Routes = [
       },
       {
         path: 'fav',
-        loadChildren: () => import('../fav/fav-routing.module').then(m => m.FavPageRoutingModule)
+        loadChildren: () => import('../fav/fav.module').then(m => m.FavPageModule)
       },
       {
         path: 'account',
-        loadChildren: () => import('../account/account-routing.module').then(m => m.AccountPageRoutingModule)
+        loadChildren: () => import('../account/account.module').then(m => m.AccountPageModule)
       },
     ]
   },

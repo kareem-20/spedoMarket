@@ -63,6 +63,7 @@ ion-title {
     box-shadow: 0 0 0 0;
     margin-inline-start: 0;
     margin-inline-end: 0;
+    // height: 100%;
 
     ion-card-header {
       padding: 0;
@@ -104,12 +105,34 @@ ion-title {
         }
       }
 
-      ion-button {
+      ion-button.add {
         --border-radius: 8px;
         margin-top: 12px;
         margin-bottom: 8px;
         --box-shadow: none;
         --border: none;
+        height: 40px;
+
+      }
+
+      .qount {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: #F3F3F3;
+        border-radius: 6px;
+        height: 40px;
+        margin-top: 12px;
+
+        ion-label {
+          color: #292929;
+          font-size: 20px;
+          line-height: 40px;
+          font-weight: 600;
+          width: 30px;
+          text-align: center;
+        }
       }
     }
 
@@ -162,6 +185,7 @@ ion-title {
     margin-top: 16px;
     box-shadow: 0 3px 6px #00000029;
     display: flex;
+    height: 100px;
 
     ion-row {
       height: 100%;

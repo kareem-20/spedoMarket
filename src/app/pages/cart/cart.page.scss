@@ -98,8 +98,12 @@ ion-content {
 
       }
 
+
       ion-button {
-        // --background: rgba(179, 25, 25, 0.2);
+        --padding-end: 0;
+        --padding-start: 0;
+        width: 32px;
+        height: 32px;
         border-radius: 8px;
         --border-radius: 8px;
         --box-shadow: none;
@@ -107,7 +111,12 @@ ion-content {
 
       }
 
+      .delDiv {
+        margin-inline-start: auto;
+      }
+
     }
+
 
 
 

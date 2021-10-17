@@ -12,7 +12,7 @@
 
 <ion-content fullscreen="true">
 
-  <div class="emptyView">
+  <div class="emptyView" *ngIf="emptyView">
     <div>
       <div class="image">
         <img src="../../../assets/Icon&Svg/9.my favorites/android/drawable-hdpi/like_empty.png" alt="">
@@ -30,17 +30,23 @@
 
   <div *ngIf="!emptyView" class="view">
     <div class="item" *ngFor="let item of fav;let i = index">
+      <span class="fav" [ngClass]="item.favorite ? 'active' : '' " (click)="toggleFav(item)">
+        <img
+          [src]="item.favorite ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like_act.svg' :'../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like.svg'"
+          alt="">
+      </span>
       <div class="image" (click)="detail(item)">
         <span class="discount">{{item?.PRICE_SALE_CUR}}</span>
+
         <img [src]="item?.IMG_URL" alt="">
       </div>
       <div class="info" (click)="detail(item)">
         <h3>{{item?.ITEM_NAME}}</h3>
         <p>{{item?.PRICE_SALE_3}} ج <span>{{item?.PRICE_SALE_1}} ج</span></p>
       </div>
-      <ion-button>
+      <!-- <ion-button>
         <ion-icon name="add"></ion-icon>
-      </ion-button>
+      </ion-button> -->
     </div>
   </div>
 
