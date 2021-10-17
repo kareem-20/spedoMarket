@@ -1,5 +1,4 @@
 export interface Item {
-
   ITEM_CODE: number,
   TIME_USE: Date,
   IS_TRANS: boolean,

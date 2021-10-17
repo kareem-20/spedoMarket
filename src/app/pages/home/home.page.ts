@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { CartService } from '../../services/cart.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -21,10 +22,11 @@ export class HomePage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private cartService: CartService
+    private cartService: CartService,
+    private authService: AuthService
   ) {
     this.cartService.reloadAll();
-
+    this.authService.getCredentials();
   }
 
   ngOnInit() {

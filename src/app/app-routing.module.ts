@@ -74,7 +74,11 @@ const routes: Routes = [
   {
     path: 'otp',
     loadChildren: () => import('./pages/otp/otp.module').then( m => m.OtpPageModule)
+  },  {
+    path: 'change-address',
+    loadChildren: () => import('./pages/change-address/change-address.module').then( m => m.ChangeAddressPageModule)
   }
+
 
 ];
 @NgModule({

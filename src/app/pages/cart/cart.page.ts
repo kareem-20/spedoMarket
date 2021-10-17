@@ -29,7 +29,7 @@ export class CartPage implements OnInit {
   }
 
   back() {
-    this.navCtrl.back();
+    this.navCtrl.navigateBack('/tabs/home');
   }
 
   decrease(i) {
@@ -46,12 +46,14 @@ export class CartPage implements OnInit {
     this.cartService.remove(i);
     this.getTotal();
   }
+
   confirm() {
     this.navCtrl.navigateForward('/confirm')
   }
 
   getTotal() {
     this.totalCash = this.cartService.cart.reduce((i, j) => i + j.UNIT_QTY * j.PRICE_SALE_1, 0);
+    this.cartService.totalCash = this.totalCash;
     console.log('total cash', this.totalCash)
   }
 

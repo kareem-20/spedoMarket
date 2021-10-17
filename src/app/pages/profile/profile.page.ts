@@ -60,6 +60,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     console.log('this.user', this.user)
+    if (this.user) this.imageURL = this.user.image
   }
 
   back() {

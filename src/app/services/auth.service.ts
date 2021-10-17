@@ -30,7 +30,7 @@ export class AuthService {
     private platform: Platform,
   ) {
     this.storage.create();
-    this.getCreadintial();
+    this.getCredentials();
   }
 
   async reloadUserData() {
@@ -45,7 +45,7 @@ export class AuthService {
     this.refreshToken = await this.storage.set(REFRESH_TOKEN, res.refreshToken);
   }
 
-  async getCreadintial() {
+  async getCredentials() {
     const userData = await this.storage.get(USER_DATA);
     this.userData = userData == null ? null : userData;
 

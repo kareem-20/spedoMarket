@@ -14,7 +14,8 @@
 <ion-content>
 
   <div class="profilePic">
-    <img [src]="imageURL ? imageURL : '../../../assets/Icon&Svg/6.profile/android/drawable-hdpi/normal_avatar.png' " />
+    <img
+      [src]="imageURL ? 'http://192.168.1.15:3000/'+imageURL : '../../../assets/Icon&Svg/6.profile/android/drawable-hdpi/normal_avatar.png' " />
     <ion-badge mode="ios" (click)="addPhoto()">
       <ion-icon name="camera-outline"></ion-icon>
 

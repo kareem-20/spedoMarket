@@ -25,7 +25,7 @@ export class AccountPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.getCreadintial().then(_ => {
+    this.authService.getCredentials().then(_ => {
 
       this.user = this.authService.userData;
       console.log('this.user', this.user);

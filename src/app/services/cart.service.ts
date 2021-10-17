@@ -14,9 +14,11 @@ export class CartService {
 
   public cart: Item[] = [];
   public fav: Item[] = [];
-
+  public order: any;
+  totalCash: number;
   reloaded: boolean = false;
   cartCount = new BehaviorSubject(0);
+  paymentMethod: string;
 
   constructor(
     private storage: Storage,
@@ -52,21 +54,8 @@ export class CartService {
     return this.storage.set(FAV, this.fav);
   }
 
-  get getfav() {
-    return this.fav
-  }
 
   async addToCart(item: Item) {
-    // if (!this.reloaded) await this.reloadAll();
-    // this.helper.showLoading();
-
-    // console.log('this.cart before filter', this.cart)
-    // if (this.cart.length === 0) this.cart.push(item)
-    // this.cart.filter((c) => {
-    //   return item?.ITEM_CODE == c.ITEM_CODE ? c.UNIT_QTY += 1 : this.cart.push(item);
-    // });
-
-    // console.log('this.cart after filter', this.cart)
 
     let added = false;
     if (!item.UNIT_QTY) {

@@ -58,6 +58,7 @@ ion-header {
         margin-top: 15px;
         font-weight: 600;
         line-height: 21px;
+        margin-bottom: 0;
       }
 
       p {
@@ -132,8 +133,9 @@ ion-header {
         margin: 0 6px;
         height: 100%;
         background-color: #fff;
-        --padding-inner: 0;
+        --padding-start: 8px;
         box-shadow: 0 3px 6px #00000029;
+        --inner-padding-end: 0;
 
         img {
           margin-inline-end: 8px;
