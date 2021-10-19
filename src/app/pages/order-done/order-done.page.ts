@@ -19,4 +19,7 @@ export class OrderDonePage implements OnInit {
     this.navCtrl.navigateRoot('/tabs/home')
   }
 
+  info() {
+    this.navCtrl.navigateForward('/order-info')
+  }
 }

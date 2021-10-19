@@ -128,7 +128,7 @@ ion-content {
 
 ion-footer {
   // height: 110%;
-  padding-bottom: 30px;
+  // padding-bottom: 30px;
 
   p {
     line-height: 22px;
@@ -156,16 +156,16 @@ ion-footer {
   }
 }
 
-ion-footer::after {
-  bottom: 9px;
-  content: "";
-  height: 4px;
-  color: #000;
-  background-color: #292929;
-  width: 49%;
-  position: absolute;
+// ion-footer::after {
+//   bottom: 9px;
+//   content: "";
+//   height: 4px;
+//   color: #000;
+//   background-color: #292929;
+//   width: 49%;
+//   position: absolute;
 
-  left: 25%;
-  right: 25%;
-  border-radius: 100px;
-}
+//   left: 25%;
+//   right: 25%;
+//   border-radius: 100px;
+// }

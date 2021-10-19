@@ -58,8 +58,8 @@
   <ion-toolbar>
     <p> سعر المنتجات <span class="end">{{totalCash}}</span></p>
     <p> التوصيل <span class="end">30</span></p>
-    <p> السعر الكلي <span class="end">{{totalCash + 30}}</span></p>
-    <ion-button expand="block" (click)="confirm()">
+    <p> السعر الكلي <span class="end">{{totalCash + deliveryCost}}</span></p>
+    <ion-button expand="block" (click)="confirm()" [disabled]="!cart.length">
       إكمال الطلب
     </ion-button>
   </ion-toolbar>

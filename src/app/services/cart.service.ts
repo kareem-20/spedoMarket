@@ -3,6 +3,11 @@ import { Storage } from '@ionic/storage-angular';
 import { Item } from '../interfaces/item';
 import { HelperService } from './helper.service';
 import { BehaviorSubject } from 'rxjs';
+import { Order } from '../interfaces/order';
+import { AuthService } from './auth.service';
+import { ApiService } from './api.service';
+import { NavController } from '@ionic/angular';
+import { DataService } from './data.service';
 
 const CART = 'cart';
 const FAV = 'fav';
@@ -19,10 +24,15 @@ export class CartService {
   reloaded: boolean = false;
   cartCount = new BehaviorSubject(0);
   paymentMethod: string;
+  note: string;
 
   constructor(
     private storage: Storage,
-    private helper: HelperService
+    private helper: HelperService,
+    private authService: AuthService,
+    private api: ApiService,
+    private navCtrl: NavController,
+    private dataService: DataService
   ) {
     this.reloadAll()
   }
@@ -72,11 +82,8 @@ export class CartService {
       this.cart.push(item);
     }
     this.cartCount.next(this.cartCount.value + 1);
-    console.log('this.cart', this.cart);
-    console.log('this count', this.cartCount)
     return this.storage.set(CART, this.cart)
-    // this.helper.dismissLoading();
-    // }
+
   }
 
   increase(i) {
@@ -100,10 +107,51 @@ export class CartService {
   }
 
   async removeFromCart(index) {
-    this.helper.showLoading();
+    // this.helper.showLoading();
     this.cart.splice(index, 1);
     await this.storage.set(CART, this.cart);
-    this.helper.dismissLoading();
+    // this.helper.dismissLoading();
+  }
+
+  confirmOrder() {
+    let orderDetail = [];
+    this.cart.forEach(pro => {
+      let o = {
+        item_code: pro.ITEM_CODE,
+        item_qty: pro.UNIT_QTY
+      }
+      orderDetail.push(o)
+    })
+    let order: Order = {
+      userId: this.authService.userData._id,
+      address: this.authService.myAddress._id,
+      date: Date.now(),
+      orderDetail: orderDetail,
+      paymentMethod: this.paymentMethod,
+      totalCash: this.totalCash,
+      note: this.note
+    };
+
+    console.log('order', order);
+
+    this.api.postData('/api/order/add', order)
+      .subscribe((res: any) => {
+        console.log('res', res);
+        if (res) {
+          this.dataService.setParams({ lastOrder: order })
+          this.navCtrl.navigateForward('/order-done');
+          this.emptyCart()
+        }
+      }, (err) => {
+        console.log('err', err);
+        this.navCtrl.navigateForward('/order-error')
+      })
+  }
+
+  emptyCart() {
+    this.cart = [];
+    this.cartCount.next(0);
+    this.storage.remove(CART);
   }
 
 }

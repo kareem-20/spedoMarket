@@ -5,6 +5,7 @@ import { Events } from 'src/app/interfaces/events';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-change-address',
@@ -16,28 +17,31 @@ export class ChangeAddressPage implements OnInit {
   address: Address[] = [];
   myAddress: Address;
   emptyView: boolean = false;
-  userId: string;
+  userId = this.authService.userData?._id;
   otherAddress = [];
   eventSubscription: Subscription;
-
+  newAddress;
   constructor(
     private api: ApiService,
     private authService: AuthService,
     private helper: HelperService,
+    private modalCtrl: ModalController
   ) {
 
   }
 
   ngOnInit() {
-    this.userId = this.authService.userData?._id;
+    this.myAddress = this.authService.myAddress;
+
+    // this.userId
     this.getAddress();
 
-    this.eventSubscription = this.helper.onChangeEvent()
-      .subscribe(eventName => {
-        if (eventName == Events.refreshAddress) {
-          this.getAddress()
-        }
-      })
+    // this.eventSubscription = this.helper.onChangeEvent()
+    //   .subscribe(eventName => {
+    //     if (eventName == Events.refreshAddress) {
+    //       this.getAddress()
+    //     }
+    //   })
   }
 
   getAddress() {
@@ -48,6 +52,7 @@ export class ChangeAddressPage implements OnInit {
     this.myAddress = this.authService.myAddress;
 
     this.api.getData('/api/address/get/' + this.userId).subscribe((res: any[]) => {
+      console.log('res', res)
       if (res.length) {
         this.address = res;
         if (res.length === 1) {
@@ -83,5 +88,19 @@ export class ChangeAddressPage implements OnInit {
     }, (err) => {
       console.log('err', err)
     })
+  }
+
+
+  back() {
+    this.modalCtrl.dismiss();
+  }
+
+  change(ev?: any) {
+    this.newAddress = ev.detail.value
+  }
+
+  done() {
+    this.authService.setmyAddress(this.newAddress);
+    this.modalCtrl.dismiss(this.newAddress)
   }
 }

@@ -13,6 +13,7 @@ export class CartPage implements OnInit {
 
   cart: Item[] = this.cartService.cart;
   totalCash: number;
+  deliveryCost: number = 30;
   constructor(
     private navCtrl: NavController,
     private helper: HelperService,
@@ -52,7 +53,7 @@ export class CartPage implements OnInit {
   }
 
   getTotal() {
-    this.totalCash = this.cartService.cart.reduce((i, j) => i + j.UNIT_QTY * j.PRICE_SALE_1, 0);
+    this.totalCash = this.cartService.cart.reduce((i, j) => i + j.UNIT_QTY * j.PRICE_SALE_1, 0) + this.deliveryCost;
     this.cartService.totalCash = this.totalCash;
     console.log('total cash', this.totalCash)
   }

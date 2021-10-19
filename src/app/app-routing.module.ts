@@ -77,6 +77,14 @@ const routes: Routes = [
   },  {
     path: 'change-address',
     loadChildren: () => import('./pages/change-address/change-address.module').then( m => m.ChangeAddressPageModule)
+  },
+  {
+    path: 'order-error',
+    loadChildren: () => import('./pages/order-error/order-error.module').then( m => m.OrderErrorPageModule)
+  },
+  {
+    path: 'order-info',
+    loadChildren: () => import('./pages/order-info/order-info.module').then( m => m.OrderInfoPageModule)
   }
 
 

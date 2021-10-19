@@ -1,9 +1,63 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>change-address</ion-title>
+    <ion-button slot="start" fill="clear" shape="round" (click)="back()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-title>عنوان التوصيل</ion-title>
+    <ion-button slot="end" fill="clear" shape="round">
+      <img src="../../../assets/Icon&Svg/navigation bootom & general icon//Svg/cart.svg" alt="">
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="view">
 
+    <!-- <h3 class="title">العنوان الأساسي</h3> -->
+
+    <ion-radio-group name="auto" [value]="myAddress" (ionChange)="change($event)">
+      <div *ngIf="myAddress">
+
+        <ion-card>
+          <ion-card-header>
+            <ion-item lines="none" [button]="false">
+              <ion-radio slot="start" [value]="myAddress"></ion-radio>
+              <ion-label><strong>{{myAddress?.title}}</strong> </ion-label>
+
+            </ion-item>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{myAddress?.city}} - {{myAddress?.zone}}</p>
+            <p>{{myAddress?.street}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div *ngIf="otherAddress.length">
+        <!-- <h3 class="title">العناوين الآخرى</h3> -->
+        <ion-card *ngFor="let ad of otherAddress;let i = index">
+          <ion-card-header>
+            <ion-item lines="none">
+              <ion-radio slot="start" [value]="ad"></ion-radio>
+              <ion-label><strong>{{ad?.title}} </strong> </ion-label>
+            </ion-item>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ad?.city}} - {{ad?.zone}}</p>
+            <p>{{ad?.street}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-radio-group>
+
+  </div>
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" mode="ios" (click)="done()">
+      تأكيد
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

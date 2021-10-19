@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides, NavController } from '@ionic/angular';
+import { ApiService } from '../../services/api.service';
+import { HelperService } from '../../services/helper.service';
+import { DataService } from '../../services/data.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-orders',
@@ -21,10 +25,17 @@ export class OrdersPage implements OnInit {
     loop: false
   };
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private api: ApiService,
+    private helper: HelperService,
+    private dataService: DataService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
+    this.api.getData('/api/order/get/' + this.authService.userData._id).subscribe(res => {
+      console.log('res', res)
+    })
   }
 
   toCart() {

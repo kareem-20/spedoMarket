@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from '../../services/cart.service';
 import { Address } from '../../interfaces/address';
 import { ChangeAddressPage } from '../change-address/change-address.page';
+import { HelperService } from '../../services/helper.service';
+import { Order } from '../../interfaces/order';
 
 @Component({
   selector: 'app-confirm',
@@ -16,17 +18,22 @@ export class ConfirmPage implements OnInit {
   totalCash = this.cartService.totalCash;
   cart = this.cartService.cart;
   address: Address = this.authService.myAddress;
+  note: string;
 
   constructor(
     private navCtrl: NavController,
     private cartService: CartService,
     private authService: AuthService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private helper: HelperService
   ) { }
 
   ngOnInit() {
     // this.userId
+    // this.address;
   }
+
+
 
   back() {
     this.navCtrl.navigateBack('/cart')
@@ -45,14 +52,21 @@ export class ConfirmPage implements OnInit {
 
     let dismiss = await modal.onDidDismiss();
     if (dismiss.data) {
+      // this.helper.showLoading()
       console.log('data', dismiss.data)
+
+      // this.authService.setmyAddress(dismiss.data).the;
+      this.address = this.authService.myAddress;
+
     } else {
       console.log('no data')
     }
   }
 
   confirm() {
-    this.navCtrl.navigateForward('/order-done')
+    this.cartService.note = this.note
+    this.cartService.confirmOrder();
+    // this.navCtrl.navigateForward('/order-done')
   }
 
 }
