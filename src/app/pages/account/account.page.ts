@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DrawerState } from 'ion-bottom-drawer';
 import { SheetState } from 'ion-bottom-sheet';
+import { ApiService } from 'src/app/services/api.service';
 import { User } from '../../interfaces/user';
 import { AuthService } from '../../services/auth.service';
 import { HelperService } from '../../services/helper.service';
-
 @Component({
   selector: 'app-account',
   templateUrl: './account.page.html',
@@ -18,15 +18,19 @@ export class AccountPage implements OnInit {
 
   user: User;
 
+
   constructor(
     private navCtrl: NavController,
     private authService: AuthService,
-    private helper: HelperService
+    private helper: HelperService,
+    private api:ApiService
   ) { }
+
+  url = this.api.BaseUrl+'/';
+
 
   ngOnInit() {
     this.authService.getCredentials().then(_ => {
-
       this.user = this.authService.userData;
       console.log('this.user', this.user);
       console.log('auth UserData', this.authService.userData);

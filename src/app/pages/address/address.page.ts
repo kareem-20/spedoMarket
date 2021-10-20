@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AlertController, NavController, ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { Events } from 'src/app/interfaces/events';
@@ -13,7 +13,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './address.page.html',
   styleUrls: ['./address.page.scss'],
 })
-export class AddressPage implements OnInit {
+export class AddressPage implements OnInit ,OnDestroy{
 
   address: Address[] = [];
   myAddress: Address;
@@ -35,16 +35,17 @@ export class AddressPage implements OnInit {
     this.userId = this.authService.userData?._id;
     this.getAddress();
 
-    this.eventSubscription = this.helper.onChangeEvent()
-      .subscribe(eventName => {
-        if (eventName == Events.refreshAddress) {
-          this.getAddress()
-        }
-      })
+    // this.eventSubscription = this.helper.onChangeEvent()
+    //   .subscribe(eventName => {
+    //     if (eventName == Events.refreshAddress) {
+    //       this.getAddress()
+    //     }
+    //   })
   }
 
   back() {
-    this.navCtrl.back();
+    if(this.eventSubscription) this.eventSubscription.unsubscribe();
+    this.navCtrl.navigateBack('/tabs/account');
   }
 
   addAddress() {
@@ -145,5 +146,8 @@ export class AddressPage implements OnInit {
   edit(address) {
     this.dataService.setParams({ address });
     this.navCtrl.navigateForward('/address-config')
+  }
+  ngOnDestroy(){
+   if(this.eventSubscription) this.eventSubscription.unsubscribe();
   }
 }

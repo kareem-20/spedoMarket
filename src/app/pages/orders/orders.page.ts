@@ -4,6 +4,7 @@ import { ApiService } from '../../services/api.service';
 import { HelperService } from '../../services/helper.service';
 import { DataService } from '../../services/data.service';
 import { AuthService } from '../../services/auth.service';
+import { Order } from 'src/app/interfaces/order';
 
 @Component({
   selector: 'app-orders',
@@ -11,7 +12,6 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./orders.page.scss'],
 })
 export class OrdersPage implements OnInit {
-
   segmentVal: number = 0;
   @ViewChild('slid') slid: IonSlides;
 
@@ -22,33 +22,52 @@ export class OrdersPage implements OnInit {
     spaceBetween: 0,
     slidesPerView: 1,
     freeMode: false,
-    loop: false
+    loop: false,
   };
+
+  pastOrders: Order[] = [];
+  newOrders: Order[] = [];
+
+  newEmpty: boolean;
+  pastEmpty: boolean;
+
   constructor(
     private navCtrl: NavController,
     private api: ApiService,
     private helper: HelperService,
     private dataService: DataService,
     private authService: AuthService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.api.getData('/api/order/get/' + this.authService.userData._id).subscribe(res => {
-      console.log('res', res)
-    })
+    this.getOrders();
   }
 
-  toCart() {
+  async getOrders() {
+    this.helper.showLoading();
+    this.api
+      .getData('/api/order/get/' + this.authService.userData._id)
+      .subscribe((res: any[]) => {
+        console.log('res', res);
+        res.forEach((order) => {
+          if (order.status == 'pending') this.newOrders.push(order);
+          else this.pastOrders.push(order);
+        });
+        this.newEmpty = this.newOrders.length ? false : true;
+        this.pastEmpty = this.pastOrders.length ? false : true;
 
+        this.helper.dismissLoading();
+      });
   }
+
+  toCart() {}
 
   async segmentChanged(ev?: any) {
     // console.log('', ev)
-    await this.slid.slideTo(ev.detail.value)
+    await this.slid.slideTo(ev.detail.value);
   }
 
   async slideChanged(ev?: any) {
-    this.segmentVal = await this.slid.getActiveIndex()
+    this.segmentVal = await this.slid.getActiveIndex();
   }
-
 }

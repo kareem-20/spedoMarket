@@ -99,7 +99,7 @@ export class AuthService {
 
   async logOut() {
     return await this.clearCreadintial().then(() => {
-      this.navCtrl.navigateBack('/tabs/home');
+      this.navCtrl.navigateBack('/sign');
     });
   }
 

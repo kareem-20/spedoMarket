@@ -46,6 +46,8 @@ export class ProfilePage implements OnInit {
 
   //form data;
   // phone:number;
+  url = this.api.BaseUrl+'/';
+
   pornDate
   constructor(
     private navCtrl: NavController,
@@ -57,6 +59,7 @@ export class ProfilePage implements OnInit {
     private authService: AuthService,
     private helper: HelperService
   ) { }
+
 
   ngOnInit() {
     console.log('this.user', this.user)

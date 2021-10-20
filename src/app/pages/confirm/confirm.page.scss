@@ -11,7 +11,6 @@ ion-header {
 }
 
 .container {
-
   h2 {
     color: #656565;
     font-size: 16px;
@@ -21,7 +20,7 @@ ion-header {
 
   .itemTop {
     display: flex;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 3px 6px #00000029;
     align-items: center;
@@ -35,7 +34,7 @@ ion-header {
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        background-color: rgba(179, 25, 25, .11);
+        background-color: rgba(179, 25, 25, 0.11);
         display: flex;
 
         img {
@@ -76,7 +75,7 @@ ion-header {
     margin: 0;
 
     ion-card-header {
-      background-color: rgba($color: #B2B2B2, $alpha: .08);
+      background-color: rgba($color: #b2b2b2, $alpha: 0.08);
       padding-bottom: 12px;
       margin-bottom: 16px;
     }
@@ -97,8 +96,8 @@ ion-header {
     .change {
       background-color: #fff;
       border-radius: 8px;
-      color: #B31919;
-      border: 1px solid #B31919;
+      color: #b31919;
+      border: 1px solid #b31919;
     }
 
     // ion-card-content {
@@ -135,11 +134,10 @@ ion-header {
         background-color: #fff;
         --padding-start: 8px;
         box-shadow: 0 3px 6px #00000029;
-        --inner-padding-end: 0;
+        --padding-end: 0;
 
         img {
           margin-inline-end: 8px;
-
         }
 
         ion-label {
@@ -147,7 +145,6 @@ ion-header {
           font-weight: 600;
           font-size: 16px;
         }
-
 
         img {
           width: 38px;
@@ -164,17 +161,13 @@ ion-header {
         --color: transparent !important;
         --color-checked: transparent !important;
       }
-
     }
-
-
   }
 
   .item {
-
     &.item-radio-checked {
       border-color: var(--ion-color-primary) !important;
-      --background: #B31919 !important;
+      --background: #b31919 !important;
       border: 1px solid #fff !important;
       color: #fff !important;
     }
@@ -189,12 +182,8 @@ ion-header {
       box-shadow: 0 3px 6px #00000029;
       padding: 12px;
     }
-
   }
-
 }
-
-
 
 ion-footer {
   height: 117px;

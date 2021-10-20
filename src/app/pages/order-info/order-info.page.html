@@ -29,7 +29,7 @@
       <div class="head">
         <div class="start">
           <p>تاريخ ارسال الطلب</p>
-          <h3>#342534</h3>
+          <h3>{{order?.date | date}}</h3>
         </div>
       </div>
     </div>
@@ -39,31 +39,31 @@
     <ion-card>
       <ion-card-header>
         <ion-item lines="none" [button]="false">
-          <ion-label><strong>myAddress?.title</strong> </ion-label>
+          <ion-label><strong>{{orderAddress?.title}}</strong> </ion-label>
 
         </ion-item>
       </ion-card-header>
       <ion-card-content>
-        <p>myAddress?.city - myAddress?.zone</p>
-        <p>myAddress?.street</p>
+        <p>{{orderAddress?.city}} - {{orderAddress?.zone}}</p>
+        <p>{{orderAddress?.street}}</p>
       </ion-card-content>
     </ion-card>
 
-    <h2>(2) منتج</h2>
+    <h2>({{orderDetails.length}}) منتج</h2>
 
   </div>
 
   <div class="prodCards">
-    <ion-card>
+    <ion-card *ngFor="let item of orderDetails">
       <ion-card-header>
-        <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+        <img [src]="item?.IMG_URL" alt="">
       </ion-card-header>
       <ion-card-content>
-        <ion-card-title>أجندة بقلم ريشة بخامات ممتازة</ion-card-title>
-        <p>150 ج</p>
+        <ion-card-title>{{item?.ITEM_NAME}}</ion-card-title>
+        <p>{{item?.SELL}} ج</p>
       </ion-card-content>
     </ion-card>
-    <ion-card>
+    <!-- <ion-card>
       <ion-card-header>
 
         <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product-1.png" alt="">
@@ -81,24 +81,29 @@
         <ion-card-title>نوت بوك خشب مطبوع مقاس A5</ion-card-title>
         <p>150 ج</p>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
   </div>
 
   <div class="container">
     <h2>قيمة الطلب</h2>
 
     <div class="cash">
-      <p> سعر المنتجات <span class="end">totalCash</span></p>
+      <p> سعر المنتجات <span class="end">{{order.totalCash}}</span></p>
       <p> التوصيل <span class="end">30</span></p>
-      <p> السعر الكلي <span class="end">totalCash + 30</span></p>
+      <p> السعر الكلي <span class="end">{{order.totalCash + 30}}</span></p>
     </div>
 
     <h2>طريقة الدفع</h2>
 
     <div class="method">
-      <ion-item class="radio" lines="none">
+      <ion-item class="radio" lines="none" *ngIf="order.paymentMethod=='fawry'">
         <img src="../../../assets/Icon&Svg/3.cart//android/drawable-hdpi/NoPath.png" alt="">
         <ion-label>عن طريق خدمة ( فوري )</ion-label>
+      </ion-item>
+
+      <ion-item class="radio" lines="none" *ngIf="order.paymentMethod=='onDelivery'">
+        <img src="../../../assets/Icon&Svg/3.cart//android/drawable-hdpi/money_cash.png" alt="">
+        <ion-label>الدفع عند الإستلام</ion-label>
       </ion-item>
     </div>
   </div>

@@ -113,10 +113,14 @@ export class SignPage implements OnInit {
       console.log('body', body)
       this.api.postData(
         '/auth/login', body
-      ).subscribe((res: any) => {
+      ).subscribe(async(res: any) => {
         console.log('res', res)
-        this.authService.saveCreadintial(res);
-        this.navCtrl.navigateForward('/tabs/home')
+        if(res.success === 'ok'){
+          console.log(res);
+          
+          this.authService.saveCreadintial(res);
+          this.navCtrl.navigateForward('/tabs/home')
+        }
       })
     }
   }

@@ -14,7 +14,6 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
   slidesOptions = {
     initialSlide: 0,
     direction: 'horizontal',
@@ -22,10 +21,10 @@ export class HomePage implements OnInit {
     spaceBetween: 5,
     slidesPerView: 1,
     freeMode: false,
-    loop: true
+    loop: true,
   };
 
-  feature: Item[] = []
+  feature: Item[] = [];
   discounts: Item[] = [];
   constructor(
     private navCtrl: NavController,
@@ -40,9 +39,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-
     this.getData();
-
   }
 
   getData() {
@@ -50,34 +47,28 @@ export class HomePage implements OnInit {
 
     forkJoin([
       this.api.getOtherData('/api/item/get-feature'),
-      this.api.getOtherData('/api/item/get-discount')
+      this.api.getOtherData('/api/item/get-discount'),
     ]).subscribe(async (res: any) => {
       for (let i = 0; i < 4; i++) {
         this.feature.push(res[0].data[i]);
         this.discounts.push(res[1].data[i]);
 
-        await Promise.all([
-          this.checkCart(),
-          this.checkFav()
-        ])
+        await Promise.all([this.checkCart(), this.checkFav()]);
       }
       this.helper.dismissLoading();
-      console.log('this.feature', this.feature)
-      console.log('this.discounts', this.discounts)
-
-    })
+      console.log('this.feature', this.feature);
+      console.log('this.discounts', this.discounts);
+    });
   }
 
   toCart() {
-    this.navCtrl.navigateForward('/cart')
+    this.navCtrl.navigateForward('/cart');
   }
 
-
-
-  viewMore() {
-    this.navCtrl.navigateForward('/products')
+  viewMore(type) {
+    this.dataService.setParams({ type });
+    this.navCtrl.navigateForward('/products/' + true);
   }
-
 
   detail(item) {
     this.dataService.setParams({ item });
@@ -85,35 +76,35 @@ export class HomePage implements OnInit {
   }
 
   async checkCart() {
-    this.feature.forEach(item => {
-      this.cartService.cart.forEach(ca => {
+    this.feature.forEach((item) => {
+      this.cartService.cart.forEach((ca) => {
         if (item.ITEM_CODE === ca.ITEM_CODE) {
           item.addedToCart = true;
           item.UNIT_QTY = ca.UNIT_QTY;
         }
-      })
-    })
-    this.discounts.forEach(item => {
-      this.cartService.cart.forEach(ca => {
+      });
+    });
+    this.discounts.forEach((item) => {
+      this.cartService.cart.forEach((ca) => {
         if (item.ITEM_CODE === ca.ITEM_CODE) {
           item.addedToCart = true;
           item.UNIT_QTY = ca.UNIT_QTY;
         }
-      })
-    })
+      });
+    });
   }
 
   async checkFav() {
-    this.feature.forEach(item => {
-      this.cartService.fav.forEach(fav => {
+    this.feature.forEach((item) => {
+      this.cartService.fav.forEach((fav) => {
         if (item.ITEM_CODE === fav.ITEM_CODE) {
           item.favorite = true;
         }
       });
     });
 
-    this.discounts.forEach(item => {
-      this.cartService.fav.forEach(fav => {
+    this.discounts.forEach((item) => {
+      this.cartService.fav.forEach((fav) => {
         if (item.ITEM_CODE === fav.ITEM_CODE) {
           item.favorite = true;
         }
@@ -122,27 +113,28 @@ export class HomePage implements OnInit {
   }
 
   increase(item: Item, i) {
-    this.cartService.cart.forEach(c => {
-      if (c.ITEM_CODE === item.ITEM_CODE) c.UNIT_QTY++, item.UNIT_QTY = c.UNIT_QTY;
-    })
+    this.cartService.cart.forEach((c) => {
+      if (c.ITEM_CODE === item.ITEM_CODE)
+        c.UNIT_QTY++, (item.UNIT_QTY = c.UNIT_QTY);
+    });
   }
 
   decrease(item, i) {
-    this.cartService.cart.forEach(c => {
-      if (c.ITEM_CODE === item.ITEM_CODE) c.UNIT_QTY--, item.UNIT_QTY = c.UNIT_QTY;
-    })
+    this.cartService.cart.forEach((c) => {
+      if (c.ITEM_CODE === item.ITEM_CODE)
+        c.UNIT_QTY--, (item.UNIT_QTY = c.UNIT_QTY);
+    });
   }
 
   toggleFav(item: Item) {
-    this.cartService.toggleFav(item).then(_ => {
-      console.log('item', item)
-    })
+    this.cartService.toggleFav(item).then((_) => {
+      console.log('item', item);
+    });
   }
 
   addToCart(item) {
     this.cartService.addToCart(item);
     item.addedToCart = true;
-    this.helper.showToast('تم اضافة العنصر الي سلة المشتريات')
+    this.helper.showToast('تم اضافة العنصر الي سلة المشتريات');
   }
-
 }

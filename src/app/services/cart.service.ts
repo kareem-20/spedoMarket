@@ -66,7 +66,6 @@ export class CartService {
 
 
   async addToCart(item: Item) {
-
     let added = false;
     if (!item.UNIT_QTY) {
       item.UNIT_QTY = 1;
@@ -138,7 +137,7 @@ export class CartService {
       .subscribe((res: any) => {
         console.log('res', res);
         if (res) {
-          this.dataService.setParams({ lastOrder: order })
+          this.dataService.setParams({ lastOrder: order ,orderAddress:this.authService.myAddress})
           this.navCtrl.navigateForward('/order-done');
           this.emptyCart()
         }
