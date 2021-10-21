@@ -70,4 +70,9 @@ export class OrdersPage implements OnInit {
   async slideChanged(ev?: any) {
     this.segmentVal = await this.slid.getActiveIndex();
   }
+
+  info(order) {
+    this.dataService.setParams({ order });
+    this.navCtrl.navigateForward('/order-info');
+  }
 }

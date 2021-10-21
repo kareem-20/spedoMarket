@@ -1,31 +1,31 @@
-<ion-header>
 
-  <ion-button expand="block" fill="clear" shape="round" (click)="skip()">
-    <ion-img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/back_red.svg"></ion-img>
-    تخطي
-  </ion-button>
-  <div class="info">
-    <img src="../../../assets/logo in app/svg/main logo_sign in.svg" alt="">
-
-    <h2>اهلا بك في <br> تطبيق <span>سبيدوو</span></h2>
-  </div>
-
-  <hr style="height: 12px; width: 100%; background-color: #F5F5F5;border: none;margin-top: 32px;">
-
-  <ion-segment [(ngModel)]="segmentVal" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="0">
-      <ion-label>تسجيل الدخول</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="1">
-      <ion-label>حساب جديد</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-</ion-header>
 
 <ion-content>
+  <ion-header>
 
+    <ion-button expand="block" fill="clear" shape="round" (click)="skip()">
+      <ion-img src="../../../assets/Icon&Svg/splash & sign/svg ( icon )/back_red.svg"></ion-img>
+      تخطي
+    </ion-button>
+    <div class="info">
+      <img src="../../../assets/logo in app/svg/main logo_sign in.svg" alt="">
+  
+      <h2>اهلا بك في <br> تطبيق <span>سبيدوو</span></h2>
+    </div>
+  
+    <hr style="height: 12px; width: 100%; background-color: #F5F5F5;border: none;margin-top: 32px;">
+  
+    <ion-segment [(ngModel)]="segmentVal" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="0">
+        <ion-label>تسجيل الدخول</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-label>حساب جديد</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-header>
 
-  <ion-slides #mySlider pager="false" [options]="slideOpts" (ionSlideDidChange)="slideChanged($event)">
+  <ion-slides #mySlider pager="false" class="ion-margin-bottom" [options]="slideOpts" (ionSlideDidChange)="slideChanged($event)">
 
     <ion-slide>
       <form class="container" [formGroup]="loginForm">

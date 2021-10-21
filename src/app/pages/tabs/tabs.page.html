@@ -18,7 +18,7 @@
       <ion-label>الاقسام</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="orders">
+    <ion-tab-button tab="orders" *ngIf='isUser'>
       <img
         [src]="selectedTab ==='orders' ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/orders_ac.svg' : '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/orders.svg'"
         alt="">

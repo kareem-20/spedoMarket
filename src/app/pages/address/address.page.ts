@@ -1,5 +1,10 @@
+import { take, tap } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AlertController, NavController, ToastController } from '@ionic/angular';
+import {
+  AlertController,
+  NavController,
+  ToastController,
+} from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { Events } from 'src/app/interfaces/events';
 import { Address } from '../../interfaces/address';
@@ -13,14 +18,14 @@ import { DataService } from '../../services/data.service';
   templateUrl: './address.page.html',
   styleUrls: ['./address.page.scss'],
 })
-export class AddressPage implements OnInit ,OnDestroy{
-
+export class AddressPage implements OnInit, OnDestroy {
   address: Address[] = [];
   myAddress: Address;
   emptyView: boolean = false;
-  userId: string;
+  userId: string = this.authService.userData?._id;
   otherAddress = [];
   eventSubscription: Subscription;
+  // this.userId = this.authService.userData?._id;
 
   constructor(
     private navCtrl: NavController,
@@ -29,79 +34,83 @@ export class AddressPage implements OnInit ,OnDestroy{
     private authService: AuthService,
     private helper: HelperService,
     private dataService: DataService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.userId = this.authService.userData?._id;
     this.getAddress();
 
-    // this.eventSubscription = this.helper.onChangeEvent()
-    //   .subscribe(eventName => {
+    // this.eventSubscription = this.helper
+    //   .onChangeEvent()
+    //   .subscribe((eventName) => {
     //     if (eventName == Events.refreshAddress) {
-    //       this.getAddress()
+    //       this.getAddress();
     //     }
-    //   })
+    //   });
   }
 
   back() {
-    if(this.eventSubscription) this.eventSubscription.unsubscribe();
+    if (this.eventSubscription) this.eventSubscription.unsubscribe();
     this.navCtrl.navigateBack('/tabs/account');
   }
 
   addAddress() {
-    this.navCtrl.navigateForward('/address-config')
+    this.navCtrl.navigateForward('/address-config');
   }
 
   ionViewWillEnter() {
     // this.getAddress()
   }
   getAddress() {
-    this.helper.showLoading()
+    this.helper.showLoading();
     this.otherAddress = [];
     this.address = [];
 
     this.myAddress = this.authService.myAddress;
 
-    this.api.getData('/api/address/get/' + this.userId).subscribe((res: any[]) => {
-      if (res.length) {
-        this.address = res;
-        if (res.length === 1) {
-          this.authService.setmyAddress(res[0]);
-          this.myAddress = res[0];
-          console.log('first if')
+    this.api
+      .getData('/api/address/get/' + this.userId)
+      .pipe(take(1))
+      .subscribe(
+        (res: any[]) => {
+          if (res.length) {
+            this.address = res;
+            if (res.length === 1) {
+              // this.authService.setmyAddress(res[0]);
+              // this.myAddress = res[0];
+              console.log('first if');
+            } else {
+              console.log('first else');
+              if (this.myAddress) {
+                console.log('second if');
 
-        } else {
-          console.log('first else')
-          if (this.myAddress) {
-            console.log('second if')
-
-            this.address.forEach(ade => {
-              if (ade._id === this.myAddress?._id) {
-                ade.checked = true
+                this.address.forEach((ade) => {
+                  if (ade._id === this.myAddress?._id) {
+                    ade.checked = true;
+                  } else {
+                    ade.checked = false;
+                    this.otherAddress.push(ade);
+                  }
+                });
               } else {
-                ade.checked = false;
-                this.otherAddress.push(ade)
+                console.log('second else');
+
+                this.otherAddress = res;
               }
-            });
+            }
           } else {
-            console.log('second else')
-
-            this.otherAddress = res;
-
+            this.emptyView = true;
           }
+          this.helper.dismissLoading();
+        },
+        (err) => {
+          console.log('err', err);
+          this.eventSubscription.unsubscribe();
         }
-
-      } else {
-        this.emptyView = true;
-      }
-      this.helper.dismissLoading()
-    }, (err) => {
-      console.log('err', err)
-    })
+      );
   }
 
   change(ev?: any) {
-    console.log('ev', ev.detail)
+    console.log('ev', ev.detail);
     // this.helper.showLoading();
     this.authService.myAddress = ev.detail.value;
     this.getAddress();
@@ -111,8 +120,7 @@ export class AddressPage implements OnInit ,OnDestroy{
   async deleteAddress(ad: Address, i?: number) {
     const alert = await this.alertCtrl.create({
       mode: 'ios',
-      header: ''
-      ,
+      header: '',
       message: `
         <div class="myalert12">
             <div class="image" >
@@ -126,28 +134,29 @@ export class AddressPage implements OnInit ,OnDestroy{
           text: 'حذف',
           handler: () => {
             this.otherAddress.splice(i, 1);
-            console.log('ad', ad)
-            this.api.deleteData('/api/address/delete/' + ad._id).subscribe((res) => {
-              console.log('res of delete', res)
-            })
+            console.log('ad', ad);
+            this.api
+              .deleteData('/api/address/delete/' + ad._id)
+              .subscribe((res) => {
+                console.log('res of delete', res);
+              });
           },
-          cssClass: 'primary'
+          cssClass: 'primary',
         },
         {
-          text: "الغاء",
-          role: 'cancel'
-        }
-      ]
-    })
-    alert.present()
-
+          text: 'الغاء',
+          role: 'cancel',
+        },
+      ],
+    });
+    alert.present();
   }
 
   edit(address) {
     this.dataService.setParams({ address });
-    this.navCtrl.navigateForward('/address-config')
+    this.navCtrl.navigateForward('/address-config');
   }
-  ngOnDestroy(){
-   if(this.eventSubscription) this.eventSubscription.unsubscribe();
+  ngOnDestroy() {
+    if (this.eventSubscription) this.eventSubscription.unsubscribe();
   }
 }

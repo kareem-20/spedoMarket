@@ -60,7 +60,7 @@
                     <img src="../../../assets/Icon&Svg/2.product details/svg/add.svg" alt="">
                   </ion-button>
                   <ion-label>{{item?.UNIT_QTY}}</ion-label>
-                  <ion-button (click)="decrease(item,i)">
+                  <ion-button (click)="decrease(item,i)" [disabled]="item.UNIT_QTY === 1">
                     <img src="../../../assets/Icon&Svg/2.product details/svg/low.svg" alt="">
                   </ion-button>
                 </ion-buttons>
@@ -68,24 +68,7 @@
             </ion-card-content>
           </ion-card>
         </ion-col>
-        <!-- <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <span class="discount">15%-</span>
-              <span class="fav">
-                <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
-              </span>
-              <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product5.png" alt="">
-            </ion-card-header>
-            <ion-card-content>
-              <ion-card-title>نوت بوك خشب مطبوع مقاس A5</ion-card-title>
-              <p>150 ج <span>170 ج</span></p>
-              <ion-button expand="block">
-                إضافة للسلة
-              </ion-button>
-            </ion-card-content>
-          </ion-card>
-        </ion-col> -->
+ 
       </ion-row>
     </ion-grid>
   </div>

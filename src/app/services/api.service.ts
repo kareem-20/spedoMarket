@@ -3,15 +3,12 @@ import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
-  BaseUrl = 'http://localhost:3001';
-  BaseUrl2 = "https://mooni.ngrok.io";
-  constructor(
-    private http: HttpClient
-  ) { }
+  BaseUrl = 'http://209.250.237.58:5501';
+  BaseUrl2 = 'https://mooni.ngrok.io';
+  constructor(private http: HttpClient) {}
 
   getData(endPoint) {
     return this.http.get(this.BaseUrl + endPoint).pipe(take(1));
@@ -33,12 +30,9 @@ export class ApiService {
     return this.http.get(this.BaseUrl2 + endPoint).pipe(take(1));
   }
 
-
-
   postOtp(endPoint: string, body: any) {
     return this.http
       .post('http://209.250.237.58:3016/otp' + endPoint, body)
       .pipe(take(1));
   }
-
 }

@@ -114,7 +114,6 @@ export class ProductsPage implements OnInit {
   increase(item: Item, i) {
     this.cartService.cart.forEach((c) => {
       if (c.ITEM_CODE === item.ITEM_CODE) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         c.UNIT_QTY++, (item.UNIT_QTY = c.UNIT_QTY);
       }
     });
@@ -123,7 +122,6 @@ export class ProductsPage implements OnInit {
   decrease(item, i) {
     this.cartService.cart.forEach((c) => {
       if (c.ITEM_CODE === item.ITEM_CODE) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         c.UNIT_QTY--, (item.UNIT_QTY = c.UNIT_QTY);
       }
     });

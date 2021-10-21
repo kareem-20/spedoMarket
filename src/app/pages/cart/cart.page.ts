@@ -10,7 +10,6 @@ import { Item } from 'src/app/interfaces/item';
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage implements OnInit {
-
   cart: Item[] = this.cartService.cart;
   totalCash: number;
   deliveryCost: number = 30;
@@ -18,15 +17,12 @@ export class CartPage implements OnInit {
     private navCtrl: NavController,
     private helper: HelperService,
     private cartService: CartService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
-
     this.getTotal();
     // this.cart =;
     // console.log('this.cart', this.cartService.cart);
-
   }
 
   back() {
@@ -49,13 +45,15 @@ export class CartPage implements OnInit {
   }
 
   confirm() {
-    this.navCtrl.navigateForward('/confirm')
+    this.navCtrl.navigateForward('/confirm');
   }
 
   getTotal() {
-    this.totalCash = this.cartService.cart.reduce((i, j) => i + j.UNIT_QTY * j.PRICE_SALE_1, 0) + this.deliveryCost;
+    this.totalCash = this.cartService.cart.reduce(
+      (i, j) => i + j.UNIT_QTY * j.PRICE_SALE_3,
+      0
+    );
     this.cartService.totalCash = this.totalCash;
-    console.log('total cash', this.totalCash)
+    console.log('total cash', this.totalCash);
   }
-
 }

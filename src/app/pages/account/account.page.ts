@@ -12,25 +12,22 @@ import { HelperService } from '../../services/helper.service';
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage implements OnInit {
-
   sheetState = SheetState.Bottom;
   title = 'my title';
 
   user: User;
 
-
   constructor(
     private navCtrl: NavController,
     private authService: AuthService,
     private helper: HelperService,
-    private api:ApiService
-  ) { }
+    private api: ApiService
+  ) {}
 
-  url = this.api.BaseUrl+'/';
-
+  url = this.api.BaseUrl + '/';
 
   ngOnInit() {
-    this.authService.getCredentials().then(_ => {
+    this.authService.getCredentials().then((_) => {
       this.user = this.authService.userData;
       console.log('this.user', this.user);
       console.log('auth UserData', this.authService.userData);
@@ -38,30 +35,28 @@ export class AccountPage implements OnInit {
   }
 
   toCart() {
-    this.navCtrl.navigateForward('/cart')
+    this.navCtrl.navigateForward('/cart');
   }
-
-
 
   toAddress() {
     if (this.user) {
-      this.navCtrl.navigateForward('/address')
+      this.navCtrl.navigateForward('/address');
     } else {
-      this.navCtrl.navigateRoot('/sign')
-      this.helper.showToast('سجل دخول اولاً')
+      this.navCtrl.navigateRoot('/sign');
+      this.helper.showToast('سجل دخول اولاً');
     }
   }
 
   toFav() {
-
+    this.navCtrl.navigateForward('/tabs/fav');
   }
 
   profile() {
     if (this.user) {
-      this.navCtrl.navigateForward('/profile')
+      this.navCtrl.navigateForward('/profile');
     } else {
-      this.navCtrl.navigateRoot('/sign')
-      this.helper.showToast('سجل دخول اولاً')
+      this.navCtrl.navigateRoot('/sign');
+      this.helper.showToast('سجل دخول اولاً');
     }
   }
 
@@ -71,9 +66,10 @@ export class AccountPage implements OnInit {
   }
 
   contact() {
-    this.navCtrl.navigateForward('/contact')
+    this.navCtrl.navigateForward('/contact');
   }
 
-
-
+  logOut() {
+    this.authService.logOut();
+  }
 }

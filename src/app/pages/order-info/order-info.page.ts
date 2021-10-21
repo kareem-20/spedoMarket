@@ -33,7 +33,8 @@ export class OrderInfoPage implements OnInit, OnDestroy {
       this.dataService.getParams()?.lastOrder ||
       this.dataService.getParams()?.order;
     let fork = [];
-    this.orderAddress = this.dataService.getParams().orderAddress;
+    this.orderAddress =
+      this.dataService.getParams().orderAddress || this.order.address;
     this.order.orderDetail.forEach((pro) => {
       fork.push(this.api.getOtherData(`/api/item/get?id=${pro.item_code}`));
     });

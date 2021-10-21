@@ -46,8 +46,10 @@
         <ion-card *ngFor="let item of feature;let i = index">
           <ion-card-header>
             <!-- <span class="discount">15%-</span> -->
-            <span class="fav">
-              <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
+            <span class="fav" [ngClass]="item.favorite ? 'active' : '' " (click)="toggleFav(item)">
+              <img
+                [src]="item.favorite ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like_act.svg' :'../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like.svg'"
+                alt="">
             </span>
             <img [src]="item?.IMG_URL" alt="" (click)="detail(item)">
           </ion-card-header>
@@ -85,8 +87,10 @@
         <ion-card *ngFor="let item of discounts;let i = index">
           <ion-card-header>
             <span class="discount">{{(item.PRICE_SALE_3 / item.PRICE_SALE_1) /100 | percent}}</span>
-            <span class="fav">
-              <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
+            <span class="fav" [ngClass]="item.favorite ? 'active' : '' " (click)="toggleFav(item)">
+              <img
+                [src]="item.favorite ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like_act.svg' :'../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like.svg'"
+                alt="">
             </span>
             <img [src]="item?.IMG_URL" alt="" (click)="detail(item)">
           </ion-card-header>

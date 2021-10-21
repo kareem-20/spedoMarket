@@ -32,8 +32,12 @@ export class CategoriesPage implements OnInit {
     this.api.getOtherData('/api/category/get').subscribe(
       (res: any) => {
         console.log('res', res);
-        this.categories.push(...res.data);
+        if (res.data) {
+          this.categories.push(...res.data);
+        }
+
         this.helper.dismissLoading();
+        // if(!res.data.length) this.helper.dismissLoading()
       },
       (err) => {
         console.log('err', err);

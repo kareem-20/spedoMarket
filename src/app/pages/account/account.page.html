@@ -20,8 +20,8 @@
             [src]="user?.image ? url+user?.image :'../../../assets/Icon&Svg/6.profile/svg/normal_avatar.svg'" />
         </div>
         <ion-label>
-          <p>اهلا بك</p>
-          <h2>{{user?.name ? user?.name :'. . . . . . .' }}</h2>
+          <p>{{user ? 'اهلا بك' :'تسجيل الدخول' }}</p>
+          <h2>{{user?.name ? user?.name :' . . . . . . .' }}</h2>
         </ion-label>
         <ion-label slot="end">
           <img src="../../../assets/Icon&Svg/6.profile/svg/arrow.svg" alt="">
@@ -101,7 +101,7 @@
 
       </div>
 
-      <ion-button class="logOut" expand="block" fill="clear">
+      <ion-button class="logOut" expand="block" fill="clear" *ngIf="user" (click)="logOut()">
         تسجيل الخروج
       </ion-button>
     </div>

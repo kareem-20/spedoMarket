@@ -232,6 +232,13 @@ ion-slide {
             font-size: 24px;
           }
         }
+
+        ion-button.added {
+          --background: #F3F3F3;
+          border: 1px solid #656565;
+          color: #656565;
+          border-radius: 0px 8px;
+        }
       }
 
       span.discount {
@@ -247,21 +254,28 @@ ion-slide {
         font-size: 12px;
       }
 
-      // span.fav {
-      //   position: absolute;
-      //   top: 8px;
-      //   left: 5px;
-      //   border-radius: 4px;
-      //   padding: 5px 4px 2px;
-      //   width: 26px;
-      //   height: 26px;
-      //   background-color: #F3F3F3;
-      //   img {
-      //     width: fit-content;
-      //     object-fit: contain;
-      //     height: fit-content
-      //   }
-      // }
+      span.fav {
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        border-radius: 4px;
+        padding: 2px;
+        width: 26px;
+        height: 26px;
+        background-color: #F3F3F3;
+
+
+        img {
+          width: fit-content;
+          object-fit: contain;
+          height: fit-content
+        }
+      }
+
+      span.fav.active {
+        background-color: #fff !important;
+        border: 1px solid #B3191959 !important;
+      }
     }
   }
 

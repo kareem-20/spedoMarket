@@ -14,7 +14,7 @@
 
   <ion-slides pager="ios" [options]="slidesOptions">
     <ion-slide>
-      <img [src]="item.IMG_URL" alt="">
+      <img [src]="myItem.IMG_URL" alt="">
     </ion-slide>
     <ion-slide>
       <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
@@ -29,15 +29,15 @@
 
   <div class="title">
     <div class="start">
-      <p>{{item.ITEM_NAME}}</p>
-      <h6>{{item.PRICE_COST}} جنية</h6>
+      <p>{{myItem.ITEM_NAME}}</p>
+      <h6>{{myItem.PRICE_COST}} جنية</h6>
       <!-- <span class="not">غير متوفر</span> -->
     </div>
     <div class="end">
       <ion-buttons slot="end">
-        <ion-button [ngClass]="item.favorite ? 'active' : '' " (click)="toggleFav(item)">
+        <ion-button [ngClass]="myItem.favorite ? 'active' : '' " (click)="toggleFav(myItem)">
           <img
-            [src]="item.favorite ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like_act.svg' :'../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like.svg'"
+            [src]="myItem.favorite ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like_act.svg' :'../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like.svg'"
             alt="">
         </ion-button>
         <ion-button>
@@ -66,26 +66,26 @@
       <h4>الوصف</h4>
       <!-- <p>أجندة بقلم ريشة بخامات ممتازة...أجندة بقلم ريشة بخامات ممتازة...أجندة بقلم ريشة بخامات ممتازة..أجندة بقلم ريشة
         بخامات ممتازة..</p> -->
-      <p>{{item.FULL_NAME}}</p>
+      <p>{{myItem.FULL_NAME}}</p>
     </div>
   </div>
 
   <div class="cart">
     <div class="qount">
       <ion-buttons>
-        <ion-button (click)="increase(item)">
+        <ion-button (click)="increase(myItem)" >
           <img src="../../../assets/Icon&Svg/2.product details/svg/add.svg" alt="">
         </ion-button>
-        <ion-label>{{item.UNIT_QTY}}</ion-label>
-        <ion-button (click)="decrease(item)">
+        <ion-label>{{myItem.UNIT_QTY}}</ion-label>
+        <ion-button (click)="decrease(myItem)" [disabled]="myItem.UNIT_QTY ===1 ">
           <img src="../../../assets/Icon&Svg/2.product details/svg/low.svg" alt="">
         </ion-button>
       </ion-buttons>
     </div>
     <div class="adding">
-      <ion-button expand="block" fill="solid" mode="ios" [ngClass]="item.addedToCart ? 'added' :'' "
-        (click)="addToCart()" [disabled]="item?.addedToCart">
-        {{ item.addedToCart ? 'تمت إضافته للسلة' : 'إضافة لسلة المشتريات' }}
+      <ion-button expand="block" fill="solid" mode="ios" [ngClass]="myItem.addedToCart ? 'added' :'' "
+        (click)="addToCart(myItem)" [disabled]="myItem?.addedToCart">
+        {{ myItem.addedToCart ? 'تمت إضافته للسلة' : 'إضافة لسلة المشتريات' }}
       </ion-button>
     </div>
   </div>
@@ -98,28 +98,31 @@
       </ion-label>
     </ion-item>
     <div class="prodCards">
-      <ion-card>
+      <ion-card *ngFor="let item of semilarProducts;let i = index">
         <ion-card-header>
-          <span class="discount">15%-</span>
-          <!-- <span class="fav">
-            <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
-          </span> -->
-          <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product.png" alt="">
+          <!-- <span class="discount">15%-</span> -->
+          <span class="fav" [ngClass]="item.favorite ? 'active' : '' " (click)="toggleFav(item)">
+            <img
+              [src]="item.favorite ? '../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like_act.svg' :'../../../assets/Icon&Svg/navigation bootom & general icon/Svg/like.svg'"
+              alt="">
+          </span>
+          <img [src]="item?.IMG_URL" alt="" (click)="detail(item)">
         </ion-card-header>
         <ion-card-content>
-          <ion-card-title>أجندة بقلم ريشة بخامات ممتازة</ion-card-title>
-          <p>150 ج <span>170 ج</span></p>
-          <ion-button>
-            <ion-icon name="add"></ion-icon>
+          <ion-card-title>{{item?.ITEM_NAME}}</ion-card-title>
+          <p>{{item?.PRICE_SALE_3}} ج <span>{{item?.PRICE_SALE_1}} ج</span></p>
+          <ion-button (click)="addToCart(item)" [fill]="item.addedToCart ? 'clear' : 'solid'" [ngClass]="item.addedToCart ? 'added' : '' ">
+            <ion-icon name="add" *ngIf="!item.addedToCart" ></ion-icon>
+            <ion-icon name="checkmark" *ngIf="item.addedToCart"></ion-icon>
           </ion-button>
         </ion-card-content>
       </ion-card>
-      <ion-card>
+      <!-- <ion-card>
         <ion-card-header>
           <span class="discount">15%-</span>
-          <!-- <span class="fav">
+          <span class="fav">
             <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
-          </span> -->
+          </span>
           <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product-1.png" alt="">
         </ion-card-header>
         <ion-card-content>
@@ -133,9 +136,9 @@
       <ion-card>
         <ion-card-header>
           <span class="discount">15%-</span>
-          <!-- <span class="fav">
+          <span class="fav">
             <img src="../../../assets/Icon&Svg/1.home/svg/like.svg" alt="">
-          </span> -->
+          </span>
           <img src="../../../assets/Icon&Svg/1.home/android/drawable-hdpi/product 3.png" alt="">
         </ion-card-header>
         <ion-card-content>
@@ -145,7 +148,7 @@
             <ion-icon name="add"></ion-icon>
           </ion-button>
         </ion-card-content>
-      </ion-card>
+      </ion-card> -->
     </div>
   </div>
 

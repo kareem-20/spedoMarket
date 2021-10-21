@@ -84,7 +84,7 @@ ion-content {
 
 
 ion-footer {
-  height: 117px;
+  // height: 117px;
 
   ion-button {
     height: 50px;
@@ -93,19 +93,19 @@ ion-footer {
   }
 }
 
-ion-footer::after {
-  bottom: 9px;
-  content: "";
-  height: 4px;
-  color: #000;
-  background-color: #292929;
-  width: 49%;
-  position: absolute;
+// ion-footer::after {
+//   bottom: 9px;
+//   content: "";
+//   height: 4px;
+//   color: #000;
+//   background-color: #292929;
+//   width: 49%;
+//   position: absolute;
 
-  left: 25%;
-  right: 25%;
-  border-radius: 100px;
-}
+//   left: 25%;
+//   right: 25%;
+//   border-radius: 100px;
+// }
 
 // .myalert {
 

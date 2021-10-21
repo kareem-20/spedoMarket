@@ -3,7 +3,11 @@
   <domain-config cleartextTrafficPermitted="true">
     <domain includeSubdomains="true">localhost</domain>
     <domain includeSubdomains="true">209.250.237.58</domain>
+    <domain includeSubdomains="true">209.250.237.58:3016</domain>
     <domain includeSubdomains="true">192.168.1.15</domain>
-    <domain includeSubdomains="true">iraqs</domain>
+    <domain includeSubdomains="true">mooni.ngrok.io</domain>
+    <domain includeSubdomains="true">iraqs.net/iraqs</domain>
+    <domain includeSubdomains="true">iraqs.net</domain>
+    <domain includeSubdomains="true">iraqs.net/iraqs.net</domain>
   </domain-config>
 </network-security-config>

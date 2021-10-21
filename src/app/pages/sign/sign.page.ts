@@ -1,6 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonSlides, ModalController, NavController, ToastController } from '@ionic/angular';
+import {
+  IonSlides,
+  ModalController,
+  NavController,
+  ToastController,
+} from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import * as codes from 'country-codes-list';
 import { parsePhoneNumber } from 'libphonenumber-js';
@@ -13,9 +18,8 @@ import {
   SignInWithApple,
   ASAuthorizationAppleIDRequest,
   AppleSignInResponse,
-  AppleSignInErrorResponse
-} from "@ionic-native/sign-in-with-apple/ngx";
-
+  AppleSignInErrorResponse,
+} from '@ionic-native/sign-in-with-apple/ngx';
 
 @Component({
   selector: 'app-sign',
@@ -23,7 +27,6 @@ import {
   styleUrls: ['./sign.page.scss'],
 })
 export class SignPage implements OnInit {
-
   segmentVal: number = 0;
   showPass: boolean = false;
   @ViewChild('mySlider') slid: IonSlides;
@@ -40,10 +43,8 @@ export class SignPage implements OnInit {
     spaceBetween: 0,
     slidesPerView: 1,
     freeMode: false,
-    loop: false
+    loop: false,
   };
-
-
 
   constructor(
     private fb: FormBuilder,
@@ -61,22 +62,22 @@ export class SignPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log('contry code', codes.all())
+    // console.log('contry code', codes.all());
   }
 
   createForms() {
     // login form
     this.loginForm = this.fb.group({
       phone: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
 
     // sign from
     this.signForm = this.fb.group({
       phone: ['', Validators.required],
       password: ['', Validators.required],
-      rePassword: ['', Validators.required]
-    })
+      rePassword: ['', Validators.required],
+    });
   }
 
   changeCountry(ev?: any) {
@@ -88,15 +89,15 @@ export class SignPage implements OnInit {
   }
 
   async segmentChanged(ev?: any) {
-    await this.slid.slideTo(+this.segmentVal)
+    await this.slid.slideTo(+this.segmentVal);
   }
 
   async slideChanged(ev) {
-    this.segmentVal = await this.slid.getActiveIndex()
+    this.segmentVal = await this.slid.getActiveIndex();
   }
 
   skip() {
-    this.navCtrl.navigateForward('/tabs/home')
+    this.navCtrl.navigateForward('/tabs/home');
   }
 
   validatePhoneNumber(phoneNumber) {
@@ -107,21 +108,19 @@ export class SignPage implements OnInit {
     let phone = this.validatePhoneNumber(this.loginForm.value.phone);
     let body = {
       phone: this.loginForm.value.phone,
-      password: this.loginForm.value.password
-    }
+      password: this.loginForm.value.password,
+    };
     if (phone.isValid()) {
-      console.log('body', body)
-      this.api.postData(
-        '/auth/login', body
-      ).subscribe(async(res: any) => {
-        console.log('res', res)
-        if(res.success === 'ok'){
+      console.log('body', body);
+      this.api.postData('/auth/login', body).subscribe(async (res: any) => {
+        console.log('res', res);
+        if (res.success === 'ok') {
           console.log(res);
-          
+
           this.authService.saveCreadintial(res);
-          this.navCtrl.navigateForward('/tabs/home')
+          this.navCtrl.navigateForward('/tabs/home');
         }
-      })
+      });
     }
   }
 
@@ -129,47 +128,55 @@ export class SignPage implements OnInit {
     const phone = this.validatePhoneNumber(this.signForm.value.phone);
     if (phone.isValid()) {
       if (this.signForm.value.password === this.signForm.value.rePassword) {
-        this.dataService.setParams({ phone: this.signForm.value.phone })
-        // this.api.getData(`/auth/isValid/${this.signForm.value.phone}`).subscribe(async (res: any) => {
-        // if (res.valid) {
-        const modal = await this.modalCtrl.create({
-          component: OtpPage
-        });
-        await modal.present();
-        let data = await modal.onDidDismiss();
-        if (data.data) {
-          this.sign();
-          this.helper.showToast('تم التأكيد بنجاح')
-        } else {
-          this.helper.showToast('فشل تأكيد الكود')
-        }
-        // } else {
-        this.helper.showToast('هذا الرقم مستخدم من قبل')
-        // }
-        // });
+        this.dataService.setParams({ phone: this.signForm.value.phone });
+        this.api
+          .getData(`/auth/isValid/${this.signForm.value.phone}`)
+          .subscribe(async (res: any) => {
+            if (res.valid) {
+              console.log(res);
+
+              const modal = await this.modalCtrl.create({
+                component: OtpPage,
+              });
+              await modal.present();
+              let data = await modal.onDidDismiss();
+              if (data.data) {
+                this.sign();
+                this.helper.showToast('تم التأكيد بنجاح');
+              } else {
+                this.helper.showToast('فشل تأكيد الكود');
+              }
+            } else {
+              this.helper.showToast('هذا الرقم مستخدم من قبل');
+            }
+          });
+      } else {
+        this.helper.showToast('كلمه السر غير متطابقه');
       }
     }
   }
 
   sign() {
-    this.api.postData(
-      '/auth/register',
-      {
+    this.api
+      .postData('/auth/register', {
         phone: this.signForm.value.phone,
-        password: this.signForm.value.password
-      }).subscribe((res: any) => {
-        console.log('res', res);
-        this.authService.saveCreadintial(res)
-        this.navCtrl.navigateForward('tabs/home')
+        password: this.signForm.value.password,
       })
+      .subscribe((res: any) => {
+        console.log('res', res);
+        this.authService.saveCreadintial(res);
+        this.navCtrl.navigateForward('tabs/home');
+      });
   }
 
   googleSing() {
-    this.googlePlus.login({}).then(res => {
-      // alert('res' + JSON.stringify(res))
-      console.log('res', res)
-    })
-      .catch(err => alert('err' + err))
+    this.googlePlus
+      .login({})
+      .then((res) => {
+        // alert('res' + JSON.stringify(res))
+        alert('res ===>' + JSON.stringify(res));
+      })
+      .catch((err) => alert('err ===>' + err));
   }
 
   AppleSignIn() {
@@ -177,19 +184,16 @@ export class SignPage implements OnInit {
       .signin({
         requestedScopes: [
           ASAuthorizationAppleIDRequest.ASAuthorizationScopeFullName,
-          ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
-        ]
+          ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail,
+        ],
       })
       .then((res: AppleSignInResponse) => {
-        alert("Apple login success:- " + res);
+        alert('Apple login success:- ' + res);
       })
       .catch((error: AppleSignInErrorResponse) => {
         alert(error);
       });
-
   }
 
   // Wrap every letter in a span
-
-
 }
